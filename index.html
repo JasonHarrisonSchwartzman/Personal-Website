@@ -27,16 +27,17 @@
             display: inline;
         }
 
-        /* Style the buttons */
         .button-container {
-            display: flex; /* Use flexbox to arrange buttons side by side */
+            width: 100vw; /* Make it span the entire width of the page */
+            box-sizing: border-box;
+            display: flex;
             flex-direction: row;
-            justify-content: left; /* Center buttons horizontally */
-            background-color: #333; /* Dark gray background for buttons */
-            padding: 10px 0; /* Adjust the padding as needed */
-            border: 1px solid #00ff00; /* Green border */
-            width: 99vw;
-            margin-left: 5px; 
+            justify-content: left;
+            background-color: #333;
+            padding: 10px 0;
+            border: 1px solid #00ff00;
+            margin-left: auto; /* Push to the right */
+            margin-right: auto; /* Push to the right */
         }
 
         .button {
@@ -88,7 +89,8 @@
         }
 
         .terminal {
-            width:80%;
+            width:100%;
+            box-sizing:border-box;
             height:4000px;
             margin-top: 10px; /* Add margin to push terminal below buttons */
             background-color: #030303b4;
@@ -142,10 +144,11 @@
                 <div class="dropdown">
                     <a href="#" class="button">Projects</a>
                     <div class="dropdown-content">
-                        <a href="#">Project 1</a>
-                        <a href="#">Project 2</a>
-                        <a href="#">Project 3</a>
-                        <a href="#">Project 4</a>
+                        <a href="#">Compiler</a>
+                        <a href="#">Chess</a>
+                        <a href="#">Malware Analysis</a>
+                        <a href="#">Geo-Spoofing Detection</a>
+                        <a href="#">Personal Website</a>
                     </div>
                 </div>
                 <a href="#" class="button">JLang</a>
