@@ -1,29 +1,168 @@
 <!DOCTYPE html>
-<html>
-<style>
-div{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  
-}
-</style>
-<body style="background-color:white">
-<div>
-<h1 style="font-family:verdana" style="color:black">404</h1>
-<h2 style="font-family:verdana" style="color:black">Sorry :(</h1>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Jason Schwartzman</title>
+    <link rel="icon" href="images/JS.png"/>
+    <style>
+        /* Reset default list styles */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-<h3 style="font-family:verdana">Woah! It looks like you're trying explore uncharted territory in my webserver. This is most likely a mistake on your part.</h3>
-</div>
+        header {
+            background-color: #333; /* Dark gray background */
+            padding: 10px 0; /* Adjust the padding as needed */
+        }
 
-<img src=https://www.nginx.com/wp-content/uploads/2018/08/NGINX-logo-rgb-large.png class="center" height=120px width=300px></img>
+        nav ul {
+            text-align: center;
+        }
 
+        nav li {
+            display: inline;
+        }
 
+        /* Style the buttons */
+        .button-container {
+            width: 99vw;
+            box-sizing:border-box;
+            display: flex; /* Use flexbox to arrange buttons side by side */
+            flex-direction: row;
+            justify-content: left; /* Center buttons horizontally */
+            background-color: #333; /* Dark gray background for buttons */
+            padding: 10px 0; /* Adjust the padding as needed */
+            border: 1px solid #00ff00; /* Green border */
+            margin-left: 5px; 
+        }
+
+        .button {
+            display:inline-block;
+            text-decoration: none;
+            color: #00ff00; /* Green text */
+            background-color: #444; /* Dark gray button background */
+            border: 1px solid #00ff00; /* Green border */
+            border-radius: 5px; /* Rounded corners */
+            font-weight: bold;
+            font-size: 18px; /* Adjust the font size as needed */
+            padding: 10px 20px; /* Adjust the button padding */
+            margin: 0 10px; /* Adjust the spacing between buttons */
+        }
+
+        /* Hover effect */
+        .button:hover {
+            background-color: #00ff00; /* Green background on hover */
+            color: #333; /* Dark gray text on hover */
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            text-align: left;
+        }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        body {
+            background-color: #333; /* Dark gray background */
+            font-family: "Courier New", monospace;
+            color: #00ff00; /* Green text */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: flex-start;
+            height: 100vh;
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.4) 1px, transparent 1px, transparent 10px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.4) 1px, transparent 1px, transparent 10px);
+            background-size: 30px 30px; /* Adjust the size of the squares */
+        }
+
+        .terminal {
+            width:100%;
+            box-sizing:border-box;
+            height:4000px;
+            margin-top: 10px; /* Add margin to push terminal below buttons */
+            background-color: #030303b4;
+            padding: 20px;
+            border: 2px solid #00ff00; /* Green border */
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.5); /* Green shadow */
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown content (hidden by default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #444; /* Dark gray background for dropdown */
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        /* Style for dropdown items */
+        .dropdown-content a {
+            color: #00ff00; /* Green text */
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #666; /* Gray border between items */
+        }
+
+        /* Change color on hover */
+        .dropdown-content a:hover {
+            background-color: #00ff00; /* Green background on hover */
+            color: #333; /* Dark gray text on hover */
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="button-container">
+                <a href="#" class="button">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="button">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="#">Project 1</a>
+                        <a href="#">Project 2</a>
+                        <a href="#">Project 3</a>
+                        <a href="#">Project 4</a>
+                    </div>
+                </div>
+                <a href="#" class="button">JLang</a>
+                <a href="#" class="button">About</a>
+                <a href="#" class="button">Contact</a>
+            </div>
+        </nav>
+    </header>
+    <div style="text-align:center"class="terminal">
+        <h1 style="font-size: 100px; margin-top:-10px">Error 404</h1>
+        <h2 style="margin-top:-50px">Woah!</h2>
+        <h2>It looks like you're trying explore uncharted territory in my webserver.</h2>
+        <h2>This is most likely a mistake on your part. Find your way back with the buttons above.</h2>
+        <h2>Here are some pictures of my cat for your troubles.</h2>
+        <!-- Add more terminal content here -->
+    </div>
 </body>
 </html>
