@@ -142,3 +142,12 @@ body {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.code-container {
+    width:fit-content;
+    background-color: black;
+    padding: 20px;
+    border: 2px solid #00ff00; /* Green border */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.5); /* Green shadow */
+}

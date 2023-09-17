@@ -39,8 +39,36 @@
         </nav>
     </header>
     <div class="terminal">
-        <h1>Jason Harrison Schwartzman</h1>
-        <p>nothing to see here yet lol</p>
+        <h1>Geo-Spoofing Detection</h1>
+        <p>Started: June 2021</p>
+        <p>Status: Completed as of August 2021</p>
+        <p>Geo-Spoofing occurs when someone connects to a VPN to disguise their location when connecting to a server. This can be a huge problem for media sharing companies such as Netflix that have different content in each reason. 
+            In this project myself as well as other researchers at the University at Houston tackle this issue.</p>
+        <p>To set up our experiment we launched instances on AWS across the world in locations such as South Korea, Germany, and the United States. 
+            Instances were either clients, VPNs, or servers.</p>
+        <p>Using PyShark, a Python wrapper for tshark (Wireshark), we are able to read incoming packets and perform live analysis on them on the server. The script follows the below psuedocode.</p>
+        <div class="code-container"><pre><code><span style="color:orange">IF</span> packet has <span style="color:blue">SYN</span> flag AND sent to server
+    store client IP address <span style="color:white">[i]</span>
+<span style="color:orange">IF</span> packet has <span style="color:blue">SYN ACK</span> flag AND sent from server
+    store time packet was sent associate with <span style="color:white">[i]</span>
+<span style="color:orange">IF</span> packet has <span style="color:blue">ACK</span> flag AND sent to server
+    store time packet was received associate with <span style="color:white">[i]</span>
+    <span style="color:red">calculate Round Trip Time</span> (time received - time sent) 
+    store RTT time associated with <span style="color:white">[i]</span>
+    <span style="color:red">PROBE</span> (send SYN packet to <span style="color:white">[i]</span>)
+
+### Round Trip Time of Probing packet
+
+<span style="color:orange">IF</span> packet has <span style="color:blue">SYN</span> flag AND sent from server
+    store time packet was sent associate with <span style="color:white">[i]</span>
+<span style="color:orange">IF</span> packet has <span style="color:blue">SYN ACK</span> flag AND sent to server
+    store time packet was received associate with <span style="color:white">[i]</span>
+    <span style="color:red">calculate probe Round Trip Time</span> (time received - time sent)
+    store probe RTT time associated with <span style="color:white">[i]</span>
+    <span style="color:orange">IF</span> probe RTT - initial RTT < 0.01s
+        client is <span style="font-weight:bold">DIRECT CONNECTION</span>
+    <span style="color:orange">ELSE</span>
+        client is <span style="color:red; font-weight:bold">USING VPN</span></code></pre></div>
     </div>
 </body>
 </html>
