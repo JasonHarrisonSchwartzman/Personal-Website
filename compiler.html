@@ -29,7 +29,7 @@
             </div>
         </nav>
         <nav>
-            <div style="margin-top:10px" class="button-container">
+            <div style="margin-top:70px" class="button-container">
                 <a href="compiler.html" class="curbutton">Compiler</a>
                 <a href="chess.html" class="button">Chess</a>
                 <a href="malwareanalysis.html" class="button">Malware Analysis</a>
@@ -54,23 +54,39 @@
         box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.5); /* Green shadow */
     }
     </style>
-    <div class="terminal">
+    <div style="margin-top: 140px"class="terminal">
         <h1>Compiler</h1>
         <p>Start Date: December 2022</p>
         <p>Status: In Progress</p>
         <p>I designed my own Programming Language, JLang, which is compiled using the JLang Compiler.</p>
         <p>I have always been interested in how compilers 
             generate computer readable instructions from human readable code 
-            and I wanted to learn and experience it myself so I decided to learn and build 
-            my own compiler for my own Programming Language.</p>
-        <h3>JLang Language Overview</h3>
+            and I wanted to learn and experience it myself so I decided to build 
+            a compiler for my own Programming Language.</p>
+        <h3>JLang Overview</h3>
         <p>JLang is very similar to C in terms of syntax and semantics.</p>
         <div class="code-container"><pre><code><span style="color:blue">int</span> <span style="color:white">x = </span>10<span style="color:white">;</span></code></pre></div>
         <h3>Development Process</h3>
         <p>This process was broken down into 5 major parts: Scanner, Parser, Semantics, Intermediate Representation, Code Generation. The textbook used a guide was this.</p>
         <h2>Scanner</h2>
         <p>This is the first stage of compiling where the source code is read as a stream of characters and 
-            grouped into meaningful tokens.</p>
+            grouped into meaningful tokens. Some examples include <span style="color:blue">int</span> (for integers) <span style="color:orange">if</span> (for conditionals) and <span style="color:white">identifiers</span> (for variable and function names) </p>
+        <h2>Parser</h2>
+        <p>This next stage uses the tokens generated from the scanner. It groups the tokens into rules for the language. If tokens are like words, rules are like sentences. 
+            If we have the following tokens: int x = 5 ; This forms a variable declaration rule. All rules that are parsed are added a syntax tree which holds the full program.
+        </p>
+        <h2>Semantics</h2>
+        <p>This stage includes 3 major parts: symbol creation, name resolution, and type checking.</p>
+
+        <p>Symbol creation is when an identifier is added to a symbol table which contains all declared variables and functions.</p>
+
+        <p>Name resolution happens after when identifiers are not used in the context of declaration such as assignment (when the variable is already declared) and in expressions.</p>
+
+        <p>Type checking occurs after all symbols and names are resolved and is responsible for determining if all symbols and constants are used without breaking any type rules.</p>
+        <h2>Intermediate Representation</h2>
+        <p>Once the language is known to be correct in terms of syntax and semantics translating the program into a language between the source code and assembly can begin. At this stage the syntax tree is translated into a "linear" language that consists of instructions similar to assembly. This intermediate language can still hold the types of variables and the symbols they refer to.</p>
+        <h2>Code Generation</h2>
+        <p>In the final stage, the intermediate language is converted into assembly. Symbols are converted into addresses that a computer can recognize. The stack is being properly manipulated when functions are being called and local variables are saved.</p>
     </div>
 </body>
 </html>

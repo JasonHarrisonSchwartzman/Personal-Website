@@ -28,6 +28,13 @@ nav li {
     border: 1px solid #00ff00;
     margin-left: auto; /* Push to the right */
     margin-right: auto; /* Push to the right */
+    position: fixed;
+}
+
+.cover-container {
+    position: relative;
+    background-color: #333; /* Match the fixed container's background color */
+    z-index: 1;
 }
 
 .button {
@@ -101,7 +108,7 @@ body {
     width:100%;
     box-sizing:border-box;
     height:4000px;
-    margin-top: 10px; /* Add margin to push terminal below buttons */
+    margin-top: 70px; /* Add margin to push terminal below buttons */
     background-color: #030303b4;
     padding: 20px;
     border: 2px solid #00ff00; /* Green border */
