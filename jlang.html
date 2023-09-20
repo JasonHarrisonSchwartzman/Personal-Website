@@ -7,6 +7,39 @@
     <title>Jason Schwartzman</title>
     <link rel="icon" href="images/JS.png"/>
 </head>
+<style>
+    /* Your existing styles here */
+
+    /* Style for the left and right columns */
+    .code-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .code-input,
+    .code-output {
+        flex: 1;
+        padding: 10px;
+        background-color: #111; /* Dark background for input and output */
+        color: #00ff00; /* Green text for input and output */
+        display: flex;
+        flex-direction: row;
+        width: 25%;
+        box-sizing: border-box;
+    }
+    textarea {
+            width: 45%;
+            height: 400px; /* Adjust the height as needed */
+            border: 1px solid #00ff00;
+            background-color: #111;
+            color: #00ff00;
+            padding: 10px;
+            resize: none; /* Prevent textarea from being resized by the user */
+            display: flex;
+            flex-direction: row;
+            box-sizing: border-box;
+        }
+    </style>
 <body>
     <header>
         <nav>
@@ -29,8 +62,17 @@
         </nav>
     </header>
     <div class="terminal">
-        <h1>Jason Harrison Schwartzman</h1>
-        <p>nothing to see here yet lol</p>
+                <div style="display: flex;flex-direction: row;box-sizing: border-box;font-size:80px">JLang Code<div style="margin-left: 200px"></div>Output</h2></div>
+                
+                <div style="display: flex;flex-direction: row;box-sizing: border-box;">
+                <textarea id="code-input"></textarea>
+            
+            <div class="code-output">
+                <pre>
+                    // Output here...
+                </pre>
+            </div>
+        </div>
     </div>
 </body>
 </html>
