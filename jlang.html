@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="style.css">
     <title>Jason Schwartzman</title>
     <link rel="icon" href="images/JS.png"/>
+
+    <script src="lib/codemirror.js"></script>
+    <link rel="stylesheet" href="lib/codemirror.css">
+    <script src="mode/javascript/javascript.js"></script>
+
 </head>
 <style>
     /* Your existing styles here */
@@ -65,8 +70,17 @@
                 <div style="display: flex;flex-direction: row;box-sizing: border-box;font-size:80px">JLang Code<div style="margin-left: 200px"></div>Output</h2></div>
                 
                 <div style="display: flex;flex-direction: row;box-sizing: border-box;">
-                <textarea id="code-input"></textarea>
-            
+
+
+<div style="width:50%"id="codeeditor"></div>
+<script>var editor = CodeMirror(document.getElementById("codeeditor"),{
+    lineNumbers: true
+});</script>
+
+
+
+
+
             <div class="code-output">
                 <pre>
                     // Output here...
