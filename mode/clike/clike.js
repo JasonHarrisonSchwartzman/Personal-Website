@@ -247,9 +247,9 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
     },
 
     electricInput: indentSwitch ? /^\s*(?:case .*?:|default:|\{\}?|\})$/ : /^\s*[{}]$/,
-    blockCommentStart: "/*",
-    blockCommentEnd: "*/",
-    blockCommentContinue: " * ",
+    //blockCommentStart: "/*",
+    //blockCommentEnd: "*/",
+    //blockCommentContinue: " * ",
     lineComment: "//",
     fold: "brace"
   };
@@ -267,9 +267,8 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
       return words.propertyIsEnumerable(word);
     }
   }
-  var cKeywords = "auto if break case register continue return default do sizeof " +
-    "static else struct switch extern typedef union for goto while enum const " +
-    "volatile inline restrict asm fortran";
+  var cKeywords = "if break continue return " +
+    "else elseif for while ";
 
   // Keywords from https://en.cppreference.com/w/cpp/keyword includes C++20.
   var cppKeywords = "alignas alignof and and_eq audit axiom bitand bitor catch " +
@@ -292,8 +291,7 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
 
   // Do not use this. Use the cTypes function below. This is global just to avoid
   // excessive calls when cTypes is being called multiple times during a parse.
-  var basicCTypes = words("int long char short double float unsigned signed " +
-    "void bool");
+  var basicCTypes = words("int long char short double unsigned signed ");
 
   // Do not use this. Use the objCTypes function below. This is global just to avoid
   // excessive calls when objCTypes is being called multiple times during a parse.
