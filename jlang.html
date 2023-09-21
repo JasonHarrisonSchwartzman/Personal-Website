@@ -9,8 +9,14 @@
 
     <script src="lib/codemirror.js"></script>
     <link rel="stylesheet" href="lib/codemirror.css">
-    <script src="mode/javascript/javascript.js"></script>
+    <script src="mode/clike/clike.js"></script>
     <link rel="stylesheet" href="theme/cobalt.css">
+    <link rel="stylesheet" href="theme/neo.css">
+    <link rel="stylesheet" href="theme/midnight.css">
+    <link rel="stylesheet" href="theme/material.css">
+    <link rel="stylesheet" href="theme/rubyblue.css">
+    <link rel="stylesheet" href="theme/the-matrix.css">
+    <link rel="stylesheet" href="theme/paraiso-dark.css">
 
 </head>
 <style>
@@ -73,12 +79,15 @@
                 <div style="display: flex;flex-direction: row;box-sizing: border-box;">
 
 
-<div style="width:50%"id="codeeditor"></div>
-<script>var editor = CodeMirror(document.getElementById("codeeditor"),{
-    value:"//Sample code",
-    theme: "cobalt",
-    lineNumbers: true
-});</script>
+                    <div style="width:50%"><textarea style="background-color:black"id="c-code">int x = 10;</textarea></div>
+<script>var cEditor = CodeMirror.fromTextArea(document.getElementById("c-code"), {
+    lineNumbers: true,
+    matchBrackets: true,
+    mode: "text/x-csrc",
+    theme: "the-matrix"
+  });</script>
+
+
 
 
 
