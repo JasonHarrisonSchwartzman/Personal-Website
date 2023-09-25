@@ -170,8 +170,55 @@ square (type: int)  ==  [num (type: int)] * [num (type: int)]
         </code></pre></div>
         <h2>Intermediate Representation</h2>
         <p>Once the language is known to be correct in terms of syntax and semantics translating the program into a language between the source code and assembly can begin. At this stage the syntax tree is translated into a "linear" language that consists of instructions similar to assembly. This intermediate language can still hold the types of variables and the symbols they refer to.</p>
+        <div class="code-container"><pre><code>
+            FUNCTION
+            /      /    |    \        
+           /      /     |     \
+          /      /      |      \
+         /      /       |       \
+      TYPE   square  PARAMETERS  STATEMENTS
+       |             |   |            \ 
+       |             |   |             \
+       |             |   |              \
+      int         TYPE  num         return EXPRESSION
+                   |                            |
+                   |                            |
+                   |                            |
+                  int                       num * num
+
+Symbol table:
+square -- function type: int
+num -- variable (param) type: int
+
+Name resolution:
+num (from Expression) -- num (variable)
+num (from Expression) -- num (variable)
+
+Type checking:
+return statement:
+square (type: int)  ==  [num (type: int)] * [num (type: int)]
+
+-------------------------------------------------------------
+
+Operation    Argument 1       Argument 2        Result
+FUNC_DECL      square
+PARAM            num
+MULT             num             num            temp0
+RETURN          temp0
+        </code></pre></div>
         <h2>Code Generation</h2>
         <p>In the final stage, the intermediate language is converted into assembly. Symbols are converted into addresses that a computer can recognize. The stack is being properly manipulated when functions are being called and local variables are saved.</p>
+        <div class="code-container"><pre><code>
+Operation    Argument 1       Argument 2        Result
+FUNC_DECL      square
+PARAM            num
+MULT             num             num            temp0
+RETURN          temp0
+
+-------------------------------------------------------------
+
+
+        </code></pre></div>
     </div>
 </body>
 </html>
