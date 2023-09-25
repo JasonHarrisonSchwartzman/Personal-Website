@@ -107,7 +107,7 @@ body {
 .terminal {
     width:100%;
     box-sizing:border-box;
-    height:4000px;
+    height:5000px;
     margin-top: 70px; /* Add margin to push terminal below buttons */
     background-color: #030303b4;
     padding: 20px;
