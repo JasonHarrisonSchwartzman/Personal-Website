@@ -42,8 +42,17 @@
         <h1>Geo-Spoofing Detection</h1>
         <p>Started: June 2021</p>
         <p>Status: Completed as of August 2021</p>
+        <p>This project was the main part of my experience at the 2021 REU at the University of Houston.</p>
+        <h2>Research Problem</h2>
         <p>Geo-Spoofing occurs when someone connects to a VPN to disguise their location when connecting to a server. This can be a huge problem for media sharing companies such as Netflix that have different content in each reason. 
             In this project myself as well as other researchers at the University at Houston tackle this issue.</p>
+            <img src="images/map.png" width="400px">
+        <h2>Hypothesis</h2>
+        <p>We will be testing connections to a server via SSH. 
+            Upon a client's connection to a server the TCP threeway handshake is performed.
+        We can capture the Round Trip Time on the server. Using a probing method (either initiating a TCP connection or pinging the client) we can find a disparity in the Round Trip Times in order to determine if the client is connecting through a VPN.</p>
+        <img src="images/rtt.png" width="500px">
+        <h2>Experiment</h2>
         <p>To set up our experiment we launched instances on AWS across the world in locations such as South Korea, Germany, and the United States. 
             Instances were either clients, VPNs, or servers.</p>
         <p>Using PyShark, a Python wrapper for tshark (Wireshark), we are able to read incoming packets and perform live analysis on them on the server. The script follows the below psuedocode.</p>
@@ -69,6 +78,10 @@
         client is <span style="font-weight:bold">DIRECT CONNECTION</span>
     <span style="color:orange">ELSE</span>
         client is <span style="color:red; font-weight:bold">USING VPN</span></code></pre></div>
+        <h2>Future Work</h2>
+        <p>In our tests we rely on certain services to be open such as port 22 for SSH. If this service is disabled 
+            we are unable to use our methods to get a probing Round Trip Time. Our methods on finding Round Trip Time should be explored in order to maximize the probability at least one service would be active on the client's end.
+        </p>
     </div>
 </body>
 </html>
