@@ -97,6 +97,37 @@ TOKEN_LEFT_CURLY_BRACE
         <p>This next stage uses the tokens generated from the scanner. It groups the tokens into rules for the language. If tokens are like words, rules are like sentences. 
             If we have the following tokens: int x = 5 ; This forms a variable declaration rule. All rules that are parsed are added a syntax tree which holds the full program.
         </p>
+        <div class="code-container"><pre><code>
+  [ 1 ]           [ 2 ]                    [ 3 ]              [ 4 ]           [ 5 ]                 [ 6 ]                      [ 7 ]
+TOKEN_INT -> TOKEN_IDENTIFIER -> TOKEN_LEFT_PARENTHESES -> TOKEN_INT -> TOKEN_IDENTIFIER -> TOKEN_RIGHT_PARENTHESE -> TOKEN_RIGHT_CURLY_BRACE ->
+   [ 8 ]             [ 9 ]            [ 10 ]           [ 11 ]              [ 12 ]
+TOKEN_RETURN -> TOKEN_IDENTIFIER -> TOKEN_MULT -> TOKEN_IDENTIFIER -> TOKEN_SEMICOLON ->
+       [ 13 ]
+TOKEN_LEFT_CURLY_BRACE
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+TYPE -> int
+PARAMETERS -> TYPE identifer
+EXPRESSION -> identifier * identifier
+Statements -> return EXPRESSION ;
+FUNCTION -> TYPE identifier ( PARAMETERS ) { STATEMENTS }
+
+                               FUNCTION
+                         /      /    |    \        
+                        /      /     |     \
+                       /      /      |      \
+                      /      /       |       \
+                   TYPE   square  PARAMETERS  STATEMENTS
+                    |             |   |            \ 
+                    |             |   |             \
+                    |             |   |              \
+                   int         TYPE  num         return EXPRESSION
+                                |                            |
+                                |                            |
+                                |                            |
+                               int                       num * num
+        </code></pre></div>
         <h2>Semantics</h2>
         <p>This stage includes 3 major parts: symbol creation, name resolution, and type checking.</p>
 
