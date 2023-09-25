@@ -17,6 +17,52 @@ nav li {
     display: inline;
 }
 
+.runbutton:hover {
+    background-color: rgb(10, 237, 10); /* Green background on hover */
+    color: black; /* Dark gray text on hover */
+}
+
+.runbutton {
+    display:inline-block;
+    text-decoration: none;
+    color: black; /* Green text */
+    background-color: rgb(46, 141, 46); /* Dark gray button background */
+    font-weight: bold;
+    font-size: 18px; /* Adjust the font size as needed */
+    padding: 10px 20px; /* Adjust the button padding */
+    width:100px;
+    margin-bottom:10px;
+}
+
+.code-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.code-input,
+.code-output {
+    flex: 1;
+    padding: 10px;
+    background-color: #111; /* Dark background for input and output */
+    color: #00ff00; /* Green text for input and output */
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    box-sizing: border-box;
+}
+textarea {
+        width: 45%;
+        height: 400px; /* Adjust the height as needed */
+        border: 1px solid #00ff00;
+        background-color: #111;
+        color: #00ff00;
+        padding: 10px;
+        resize: none; /* Prevent textarea from being resized by the user */
+        display: flex;
+        flex-direction: row;
+        box-sizing: border-box;
+    }
+
 .button-container {
     width: 100vw; /* Make it span the entire width of the page */
     box-sizing: border-box;

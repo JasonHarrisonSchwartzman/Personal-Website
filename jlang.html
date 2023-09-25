@@ -7,51 +7,14 @@
     <title>Jason Schwartzman</title>
     <link rel="icon" href="images/JS.png"/>
 
+    <script type="text/javascript" src="jlang.js"></script>
+
     <script src="lib/codemirror.js"></script>
     <link rel="stylesheet" href="lib/codemirror.css">
     <script src="mode/clike/clike.js"></script>
-    <link rel="stylesheet" href="theme/cobalt.css">
-    <link rel="stylesheet" href="theme/neo.css">
-    <link rel="stylesheet" href="theme/midnight.css">
-    <link rel="stylesheet" href="theme/material.css">
-    <link rel="stylesheet" href="theme/rubyblue.css">
     <link rel="stylesheet" href="theme/the-matrix.css">
-    <link rel="stylesheet" href="theme/paraiso-dark.css">
 
 </head>
-<style>
-    /* Your existing styles here */
-
-    /* Style for the left and right columns */
-    .code-container {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .code-input,
-    .code-output {
-        flex: 1;
-        padding: 10px;
-        background-color: #111; /* Dark background for input and output */
-        color: #00ff00; /* Green text for input and output */
-        display: flex;
-        flex-direction: row;
-        width: 25%;
-        box-sizing: border-box;
-    }
-    textarea {
-            width: 45%;
-            height: 400px; /* Adjust the height as needed */
-            border: 1px solid #00ff00;
-            background-color: #111;
-            color: #00ff00;
-            padding: 10px;
-            resize: none; /* Prevent textarea from being resized by the user */
-            display: flex;
-            flex-direction: row;
-            box-sizing: border-box;
-        }
-    </style>
 <body>
     <header>
         <nav>
@@ -74,29 +37,21 @@
         </nav>
     </header>
     <div class="terminal">
-                <div style="display: flex;flex-direction: row;box-sizing: border-box;font-size:80px">JLang Code<div style="margin-left: 200px"></div>Output</h2></div>
-                
-                <div style="display: flex;flex-direction: row;box-sizing: border-box;">
+                <div>
+                    <button class="runbutton">RUN</button>
+                </div>
+                <div style="display: flex;flex-direction: row;box-sizing: border-box; height:100%">
 
 
-                    <div style="width:50%"><textarea style="background-color:black"id="c-code">int x = 10;</textarea></div>
-<script>var cEditor = CodeMirror.fromTextArea(document.getElementById("c-code"), {
-    lineNumbers: true,
-    matchBrackets: true,
-    mode: "text/x-csrc",
-    theme: "the-matrix"
-  });</script>
-
-
-
-
-
+                    <div style="width:50%;height:100%"><textarea id="c-code">char ~string = "Hello world!\n";
+int start() {
+    prints(string);
+}</textarea></div>
 
 
             <div class="code-output">
                 <pre>
-                    // Output here...
-                </pre>
+// Output</pre>
             </div>
         </div>
     </div>
