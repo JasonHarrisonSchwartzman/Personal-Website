@@ -136,6 +136,38 @@ FUNCTION -> TYPE identifier ( PARAMETERS ) { STATEMENTS }
         <p>Name resolution happens after when identifiers are not used in the context of declaration such as assignment (when the variable is already declared) and in expressions.</p>
 
         <p>Type checking occurs after all symbols and names are resolved and is responsible for determining if all symbols and constants are used without breaking any type rules.</p>
+        <div class="code-container"><pre><code>
+                  FUNCTION
+            /      /    |    \        
+           /      /     |     \
+          /      /      |      \
+         /      /       |       \
+      TYPE   square  PARAMETERS  STATEMENTS
+       |             |   |            \ 
+       |             |   |             \
+       |             |   |              \
+      int         TYPE  num         return EXPRESSION
+                   |                            |
+                   |                            |
+                   |                            |
+                  int                       num * num
+
+-----------------------------------------------------
+
+Symbol table:
+square -- function type: int
+num -- variable (param) type: int
+
+Name resolution:
+num (from Expression) -- num (variable)
+num (from Expression) -- num (variable)
+
+Type checking:
+return statement:
+square (type: int)  ==  [num (type: int)] * [num (type: int)]
+
+
+        </code></pre></div>
         <h2>Intermediate Representation</h2>
         <p>Once the language is known to be correct in terms of syntax and semantics translating the program into a language between the source code and assembly can begin. At this stage the syntax tree is translated into a "linear" language that consists of instructions similar to assembly. This intermediate language can still hold the types of variables and the symbols they refer to.</p>
         <h2>Code Generation</h2>
