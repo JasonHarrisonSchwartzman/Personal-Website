@@ -7,15 +7,16 @@
     <title>Jason Schwartzman</title>
     <link rel="icon" href="images/JS.png"/>
 
-    <script type="text/javascript" src="jlang.js"></script>
+    
 
+</head>
+<body>
+    <script type="text/javascript" src="jlang.js"></script>
     <script src="lib/codemirror.js"></script>
     <link rel="stylesheet" href="lib/codemirror.css">
     <script src="mode/clike/clike.js"></script>
     <link rel="stylesheet" href="theme/the-matrix.css">
 
-</head>
-<body>
     <header>
         <nav>
             <div class="button-container">
@@ -38,7 +39,7 @@
     </header>
     <div class="terminal">
                 <div>
-                    <button class="runbutton">RUN</button>
+                    <button id="run" class="runbutton">RUN</button>
                 </div>
                 <div style="display: flex;flex-direction: row;box-sizing: border-box; height:100%">
 
@@ -49,7 +50,7 @@ int start() {
 }</textarea></div>
 
 
-            <div class="code-output">
+            <div id="output" class="code-output">
                 <pre>
 // Output</pre>
             </div>
