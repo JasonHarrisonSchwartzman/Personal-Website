@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.json())
         .then(data => {
             // Display the server's response on the webpage
-            document.getElementById("output").textContent = `Server Response: ${data.result}`;
+            document.getElementById("output").textContent = `${data.result}`;
         })
         .catch(error => {
             console.error("Error:", error);
