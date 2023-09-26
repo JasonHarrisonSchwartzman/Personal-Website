@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cEditor.setSize("100%", "100%");
     document.getElementById("run").addEventListener("click", () => {
         // Get the user's input
-        const inputData = document.getElementById("c-code").value;
+        const inputData = document.getElementById("c-code").innerText;
         console.log(inputData);
         // Send the input data to the server using Fetch API
         fetch("/jlang/code", {
