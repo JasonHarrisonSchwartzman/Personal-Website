@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     cEditor.setSize("100%", "100%");
     function convertToASCII(str) {
-        let str = "";
+        let ret = "";
         for (let i = 0; i < str.length; i++) {
             console.log(str.charCodeAt(i) + ' ' + str.charAt(i));
             if (str.charCodeAt(i) > 65000) {
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             str+=str.charAt(i);
         }
-        return str;
+        return ret;
     }
     document.getElementById("run").addEventListener("click", () => {
         // Get the user's input
