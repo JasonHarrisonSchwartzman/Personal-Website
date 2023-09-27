@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let i = 0; i < str.length; i++) {
             console.log(str.charCodeAt(i) + ' ' + str.charAt(i));
             if (str.charCodeAt(i) > 65000) {
-                str+='      ';
+                ret+='      ';
                 i+=6;
             }
-            str+=str.charAt(i);
+            ret+=str.charAt(i);
         }
         return ret;
     }
