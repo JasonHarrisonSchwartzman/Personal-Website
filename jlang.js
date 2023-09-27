@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             str+=str.charAt(i);
         }
+        return str;
     }
     document.getElementById("run").addEventListener("click", () => {
         // Get the user's input
