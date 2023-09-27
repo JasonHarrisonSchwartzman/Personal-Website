@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cEditor.setSize("100%", "100%");
     function convertToASCII(str) {
         for (let i = 0; i < str.length; i++) {
-            console.log(str.charCodeAt(i) + ' ');
+            console.log(str.charCodeAt(i) + ' ' + str.charAt(i));
         }
     }
     document.getElementById("run").addEventListener("click", () => {
