@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     cEditor.setSize("100%", "100%");
     function convertToASCII(str) {
-        str = "";
+        let str = "";
         for (let i = 0; i < str.length; i++) {
             console.log(str.charCodeAt(i) + ' ' + str.charAt(i));
             if (str.charCodeAt(i) > 65000) {
