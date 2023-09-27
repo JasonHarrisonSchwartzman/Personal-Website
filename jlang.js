@@ -6,6 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
         theme: "the-matrix",
     });
     cEditor.setSize("100%", "100%");
+    function convertToASCII(str) {
+        for (let i = 0; i < str.length; i++) {
+            console.log(str.charCodeAt(i) + ' ');
+        }
+    }
     document.getElementById("run").addEventListener("click", () => {
         // Get the user's input
         const inputData = cEditor.getValue();
@@ -21,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.json())
         .then(data => {
             // Display the server's response on the webpage
+            convertToASCII(data.result);
             document.getElementById("output").textContent = `${data.result}`;
         })
         .catch(error => {
