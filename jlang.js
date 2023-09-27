@@ -7,8 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     cEditor.setSize("100%", "100%");
     function convertToASCII(str) {
+        str = "";
         for (let i = 0; i < str.length; i++) {
             console.log(str.charCodeAt(i) + ' ' + str.charAt(i));
+            if (str.charCodeAt(i) > 65000) {
+                str+='      ';
+                i+=6;
+            }
+            str+=str.charAt(i);
         }
     }
     document.getElementById("run").addEventListener("click", () => {
@@ -27,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(data => {
             // Display the server's response on the webpage
             convertToASCII(data.result);
-            document.getElementById("output").textContent = `${data.result}`;
+            document.getElementById("output").textContent = `${convertToASCII(data.result)}`;
         })
         .catch(error => {
             console.error("Error:", error);
