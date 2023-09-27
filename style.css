@@ -75,6 +75,7 @@ textarea {
     margin-left: auto; /* Push to the right */
     margin-right: auto; /* Push to the right */
     position: fixed;
+    margin-top:-10px;
 }
 
 .cover-container {
