@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
         theme: "the-matrix",
     });
     cEditor.setSize("100%", "100%");
-    function convertToASCII(str) {//temporary fix need to change
+    function convertToASCII(str) {//code not needed but just in case
         let ret = "";
         for (let i = 0; i < str.length; i++) {
             console.log(str.charCodeAt(i) + ' ' + str.charAt(i));
