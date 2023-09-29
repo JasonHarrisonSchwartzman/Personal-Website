@@ -64,26 +64,26 @@
             generate computer readable instructions from human readable code 
             and I wanted to learn and experience it myself so I decided to build 
             a compiler for my own Programming Language.</p>
-        <h3>JLang Overview</h3>
+        <h1>JLang Overview</h1>
         <p>JLang is very similar to C in terms of syntax and semantics.</p>
         <div class="code-container"><pre><code><span style="color:blue">int</span> <span style="color:white">x = </span>10<span style="color:white">;</span></code></pre></div>
-        <h3>Development Process</h3>
+        <p></p>
+        <h1>Development Process</h3>
         <p>This process was broken down into 5 major parts: Scanner, Parser, Semantics, Intermediate Representation, Code Generation. I used this <a href="https://www3.nd.edu/~dthain/compilerbook/" target="_blank">textbook</a> as a guide throughout.</p>
 
         <div class="code-container"><pre><code><span style="color:blue">int</span> <span style="color:red">square</span>(<span style="color:blue">int</span> <span style="color:white">num</span>) {
     <span style="color:orange">return</span> <span style="color:white">num</span> * <span style="color:white">num</span>;
-}
-        </code></pre></div>
+}</code></pre></div>
 
         <h2>Scanner</h2>
         <p>This is the first stage of compiling where the source code is read as a stream of characters and 
             grouped into meaningful tokens. Some examples include <span style="color:blue">int</span> (for integers) <span style="color:orange">if</span> (for conditionals) and <span style="color:white">identifiers</span> (for variable and function names) as well as symbols used for syntax. </p>
             <div class="code-container"><pre><code>i n t   s q u a r e     (       i n t     n u m      )        { 
-[ 1 ]      [ 2 ]      [ 3 ]     [ 4 ]     [ 5 ]    [ 6 ]    [ 7 ]
+<span style="color:white">[ 1 ]      [ 2 ]      [ 3 ]     [ 4 ]     [ 5 ]    [ 6 ]    [ 7 ]</span>
 r e t u r n     n u m       *        n u m         ;
-   [ 8 ]        [ 9 ]     [ 10 ]     [ 11 ]      [ 12 ]
+   <span style="color:white">[ 8 ]        [ 9 ]     [ 10 ]     [ 11 ]      [ 12 ]</span>
   }
-[ 13 ]
+<span style="color:white">[ 13 ]</span>
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -209,32 +209,38 @@ RETURN          temp0
         </code></pre></div>
         <h2>Code Generation</h2>
         <p>In the final stage, the intermediate language is converted into assembly. Symbols are converted into addresses that a computer can recognize. The stack is being properly manipulated when functions are being called and local variables are saved.</p>
-        <div class="code-container"><pre><code>
+        <div class="code-container"><pre><code>INPUT:
+
 Operation    Argument 1       Argument 2        Result
 FUNC_DECL      square
 PARAM            num
 MULT             num             num            temp0
 RETURN          temp0
+
 -------------------------------------------------------------
+OUTPUT:
+
 square:
-PUSHQ %rbp
-MOVQ %rsp, %rbp
-MOVQ %rdi, -8(%rbp)
-MOVQ -8(%rbp), %rax
-MOVQ -8(%rbp), %rbx
-IMUL %rax, %rbx
-MOVQ %rbx, %rax
-POPQ %rbp
-RET
-        </code></pre></div>
+    PUSHQ %rbp
+    MOVQ %rsp, %rbp
+    MOVQ %rdi, -8(%rbp)
+    MOVQ -8(%rbp), %rax
+    MOVQ -8(%rbp), %rbx
+    IMUL %rax, %rbx
+    MOVQ %rbx, %rax
+    POPQ %rbp
+    RET</code></pre></div>
 <h2>Conclusion</h2>
 <p>You have now seen the development process for my compiler and compilers in general. 
     If you would like to try out the language for yourself, please check out JLang.</p>
-    <div class="code-container"><pre><code><span style="color:blue">int</span> <span style="color:red">square</span>(<span style="color:blue">int</span> <span style="color:white">num</span>) {
+    <div class="code-container"><pre><code>INPUT:
+
+<span style="color:blue">int</span> <span style="color:red">square</span>(<span style="color:blue">int</span> <span style="color:white">num</span>) {
     <span style="color:orange">return</span> <span style="color:white">num</span> * <span style="color:white">num</span>;
 }
 
 -----------------------------------------------------
+OUTPUT:
 
 square:
 PUSHQ %rbp
@@ -245,9 +251,7 @@ MOVQ -8(%rbp), %rbx
 IMUL %rax, %rbx
 MOVQ %rbx, %rax
 POPQ %rbp
-RET
-
-    </code></pre></div>
+RET</code></pre></div>
     </div>
 </body>
 </html>

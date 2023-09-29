@@ -35,6 +35,7 @@ nav li {
 }
 
 .code-container {
+    font-size:14px;
     display: flex;
     justify-content: space-between;
 }
@@ -152,6 +153,7 @@ body {
 }
 
 .terminal {
+    font-family:'Arial';
     width:100%;
     box-sizing:border-box;
     height:5000px;
