@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.json())
         .then(data => {
             // Display the server's response on the webpage
-            convertToASCII(data.result);
             document.getElementById("output").textContent = `${convertToASCII(data.result)}`;
         })
         .catch(error => {
