@@ -74,7 +74,7 @@
         <div class="code-container"><pre><code><span style="color:blue">int</span> <span style="color:red">square</span>(<span style="color:blue">int</span> <span style="color:white">num</span>) {
     <span style="color:orange">return</span> <span style="color:white">num</span> * <span style="color:white">num</span>;
 }</code></pre></div>
-
+<p></p>
         <h2>Scanner</h2>
         <p>This is the first stage of compiling where the source code is read as a stream of characters and 
             grouped into meaningful tokens. Some examples include <span style="color:blue">int</span> (for integers) <span style="color:orange">if</span> (for conditionals) and <span style="color:white">identifiers</span> (for variable and function names) as well as symbols used for syntax. </p>
@@ -97,7 +97,8 @@
 <span style="color:gray">TOKEN_RETURN -> TOKEN_IDENTIFIER -> TOKEN_MULT -> TOKEN_IDENTIFIER -> TOKEN_SEMICOLON -></span>
       <span style="color:white">[ 13 ]</span>
 <span style="color:gray">TOKEN_RIGHT_CURLY_BRACE</span></code></pre></div>
-        <h2>Parser</h2>
+<p></p>        
+<h2>Parser</h2>
         <p>This next stage uses the tokens generated from the scanner. It groups the tokens into rules for the language. If tokens are like words, rules are like sentences. 
             If we have the following tokens: int x = 5 ; This forms a variable declaration rule. All rules that are parsed are added a syntax tree which holds the full program.
         </p>
@@ -105,10 +106,8 @@
 
  <span style="color:white">[ 1 ]           [ 2 ]                    [ 3 ]              [ 4 ]           [ 5 ]                 [ 6 ]                      [ 7 ]</span>
 <span style="color:gray">TOKEN_INT -> TOKEN_IDENTIFIER -> TOKEN_LEFT_PARENTHESES -> TOKEN_INT -> TOKEN_IDENTIFIER -> TOKEN_RIGHT_PARENTHESE -> TOKEN_LEFT_CURLY_BRACE -></span>
-   <span style="color:white">[ 8 ]             [ 9 ]            [ 10 ]           [ 11 ]              [ 12 ]</span>
-<span style="color:gray">TOKEN_RETURN -> TOKEN_IDENTIFIER -> TOKEN_MULT -> TOKEN_IDENTIFIER -> TOKEN_SEMICOLON -></span>
-      <span style="color:white">[ 13 ]</span>
-<span style="color:gray">TOKEN_RIGHT_CURLY_BRACE</span>
+   <span style="color:white">[ 8 ]             [ 9 ]            [ 10 ]           [ 11 ]              [ 12 ]               [ 13 ]</span>
+<span style="color:gray">TOKEN_RETURN -> TOKEN_IDENTIFIER -> TOKEN_MULT -> TOKEN_IDENTIFIER -> TOKEN_SEMICOLON -> TOKEN_RIGHT_CURLY_BRACE</span>
 
 <span style="color:orange">------------------------------------------------------------------------------------------------------------------------------------------------</span>
 
@@ -145,69 +144,79 @@ FUNCTION -> TYPE identifier ( PARAMETERS ) { STATEMENTS }</span>
         <p>Name resolution happens after when identifiers are not used in the context of declaration such as assignment (when the variable is already declared) and in expressions.</p>
 
         <p>Type checking occurs after all symbols and names are resolved and is responsible for determining if all symbols and constants are used without breaking any type rules.</p>
-        <div class="code-container"><pre><code>
-                  FUNCTION
-            /      /    |    \        
-           /      /     |     \
-          /      /      |      \
-         /      /       |       \
-      TYPE   square  PARAMETERS  STATEMENTS
-       |             |   |            \ 
-       |             |   |             \
-       |             |   |              \
-      int         TYPE  num         return EXPRESSION
-                   |                            |
-                   |                            |
-                   |                            |
-                  int                       num * num
+        <div class="code-container"><pre><code><span style="color:cyan">INPUT:</span>
+<span style="color:blue">
+                ________________
+               |                | 
+               |    FUNCTION    |
+               |________________|
+              /      /    |    \        
+             /      /     |     \
+            /      /      |      \
+           /      /       |       \
+        TYPE   square  PARAMETERS  STATEMENTS
+         |              |       |            \ 
+         |              |       |             \
+         |              |       |              \
+        int           TYPE     num         return EXPRESSION
+                        |                            |
+                        |                            |
+                        |                            |
+                       int                       num * num</span>
 
------------------------------------------------------
+<span style="color:orange">------------------------------------------------------------</span>
 
-Symbol table:
+<span style="color:red">OUTPUT:</span>
+
+<span style="color:rgb(12, 243, 219)">Symbol table:
 square -- function type: int
-num -- variable (param) type: int
+num -- variable (param) type: int</span>
 
-Name resolution:
+<span style="color:rgb(9, 199, 180)">Name resolution:
 num (from Expression) -- num (variable)
-num (from Expression) -- num (variable)
+num (from Expression) -- num (variable)</span>
 
-Type checking:
+<span style="color:rgb(15, 229, 229)">Type checking:
 return statement:
-square (type: int)  ==  [num (type: int)] * [num (type: int)]
-
-
-        </code></pre></div>
-        <h2>Intermediate Representation</h2>
+square (type: int)  ==  [num (type: int)] * [num (type: int)]</span></code></pre></div>
+<p></p>        
+<h2>Intermediate Representation</h2>
         <p>Once the language is known to be correct in terms of syntax and semantics translating the program into a language between the source code and assembly can begin. At this stage the syntax tree is translated into a "linear" language that consists of instructions similar to assembly. This intermediate language can still hold the types of variables and the symbols they refer to.</p>
-        <div class="code-container"><pre><code>
-            FUNCTION
-            /      /    |    \        
-           /      /     |     \
-          /      /      |      \
-         /      /       |       \
-      TYPE   square  PARAMETERS  STATEMENTS
-       |             |   |            \ 
-       |             |   |             \
-       |             |   |              \
-      int         TYPE  num         return EXPRESSION
-                   |                            |
-                   |                            |
-                   |                            |
-                  int                       num * num
+        <div class="code-container"><pre><code><span style="color:cyan">INPUT:</span>
+<span style="color:blue">                ________________
+               |                | 
+               |    FUNCTION    |
+               |________________|
+              /      /    |    \        
+             /      /     |     \
+            /      /      |      \
+           /      /       |       \
+        TYPE   square  PARAMETERS  STATEMENTS
+         |              |       |            \ 
+         |              |       |             \
+         |              |       |              \
+        int           TYPE     num         return EXPRESSION
+                        |                            |
+                        |                            |
+                        |                            |
+                       int                       num * num</span>
 
-Symbol table:
+
+<span style="color:rgb(12, 243, 219)">Symbol table:
 square -- function type: int
-num -- variable (param) type: int
+num -- variable (param) type: int</span>
 
-Name resolution:
+<span style="color:rgb(9, 199, 180)">Name resolution:
 num (from Expression) -- num (variable)
-num (from Expression) -- num (variable)
+num (from Expression) -- num (variable)</span>
 
-Type checking:
+<span style="color:rgb(15, 229, 229)">Type checking:
 return statement:
-square (type: int)  ==  [num (type: int)] * [num (type: int)]
+square (type: int)  ==  [num (type: int)] * [num (type: int)]</span>
 
--------------------------------------------------------------
+<span style="color:orange">-------------------------------------------------------------</span>
+
+<span style="color:red">OUTPUT:</span>
 
 Operation    Argument 1       Argument 2        Result
 FUNC_DECL      square
