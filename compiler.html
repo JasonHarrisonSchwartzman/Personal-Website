@@ -87,52 +87,56 @@
   <span style="color:gray">}</span>
 <span style="color:white">[ 13 ]</span>
 
-------------------------------------------------------------------------------------------------------------------------------------------------
+<span style="color:orange">------------------------------------------------------------------------------------------------------------------------------------------------</span>
 
 <span style="color:red">OUTPUT:</span>
 
  <span style="color:white">[ 1 ]           [ 2 ]                    [ 3 ]              [ 4 ]           [ 5 ]                 [ 6 ]                      [ 7 ]</span>
 <span style="color:gray">TOKEN_INT -> TOKEN_IDENTIFIER -> TOKEN_LEFT_PARENTHESES -> TOKEN_INT -> TOKEN_IDENTIFIER -> TOKEN_RIGHT_PARENTHESE -> TOKEN_LEFT_CURLY_BRACE -></span>
    <span style="color:white">[ 8 ]             [ 9 ]            [ 10 ]           [ 11 ]              [ 12 ]</span>
-TOKEN_RETURN -> TOKEN_IDENTIFIER -> TOKEN_MULT -> TOKEN_IDENTIFIER -> TOKEN_SEMICOLON ->
-      [ 13 ]
-TOKEN_RIGHT_CURLY_BRACE
-            </code></pre></div>
+<span style="color:gray">TOKEN_RETURN -> TOKEN_IDENTIFIER -> TOKEN_MULT -> TOKEN_IDENTIFIER -> TOKEN_SEMICOLON -></span>
+      <span style="color:white">[ 13 ]</span>
+<span style="color:gray">TOKEN_RIGHT_CURLY_BRACE</span></code></pre></div>
         <h2>Parser</h2>
         <p>This next stage uses the tokens generated from the scanner. It groups the tokens into rules for the language. If tokens are like words, rules are like sentences. 
             If we have the following tokens: int x = 5 ; This forms a variable declaration rule. All rules that are parsed are added a syntax tree which holds the full program.
         </p>
-        <div class="code-container"><pre><code>
-  [ 1 ]           [ 2 ]                    [ 3 ]              [ 4 ]           [ 5 ]                 [ 6 ]                      [ 7 ]
-TOKEN_INT -> TOKEN_IDENTIFIER -> TOKEN_LEFT_PARENTHESES -> TOKEN_INT -> TOKEN_IDENTIFIER -> TOKEN_RIGHT_PARENTHESE -> TOKEN_LEFT_CURLY_BRACE ->
-   [ 8 ]             [ 9 ]            [ 10 ]           [ 11 ]              [ 12 ]
-TOKEN_RETURN -> TOKEN_IDENTIFIER -> TOKEN_MULT -> TOKEN_IDENTIFIER -> TOKEN_SEMICOLON ->
-       [ 13 ]
-TOKEN_RIGHT_CURLY_BRACE
+        <div class="code-container"><pre><code><span style="color:cyan">INPUT:</span>
 
-------------------------------------------------------------------------------------------------------------------------------------------------
+ <span style="color:white">[ 1 ]           [ 2 ]                    [ 3 ]              [ 4 ]           [ 5 ]                 [ 6 ]                      [ 7 ]</span>
+<span style="color:gray">TOKEN_INT -> TOKEN_IDENTIFIER -> TOKEN_LEFT_PARENTHESES -> TOKEN_INT -> TOKEN_IDENTIFIER -> TOKEN_RIGHT_PARENTHESE -> TOKEN_LEFT_CURLY_BRACE -></span>
+   <span style="color:white">[ 8 ]             [ 9 ]            [ 10 ]           [ 11 ]              [ 12 ]</span>
+<span style="color:gray">TOKEN_RETURN -> TOKEN_IDENTIFIER -> TOKEN_MULT -> TOKEN_IDENTIFIER -> TOKEN_SEMICOLON -></span>
+      <span style="color:white">[ 13 ]</span>
+<span style="color:gray">TOKEN_RIGHT_CURLY_BRACE</span>
 
-TYPE -> int
+<span style="color:orange">------------------------------------------------------------------------------------------------------------------------------------------------</span>
+
+<span style="color:red">OUTPUT:</span>
+
+<span style="color:rgb(214, 22, 214)">TYPE -> int
 PARAMETERS -> TYPE identifer
 EXPRESSION -> identifier * identifier
 STATEMENTS -> return EXPRESSION ;
-FUNCTION -> TYPE identifier ( PARAMETERS ) { STATEMENTS }
-
-                               FUNCTION
+FUNCTION -> TYPE identifier ( PARAMETERS ) { STATEMENTS }</span>
+<span style="color:blue">
+                           ________________
+                          |                | 
+                          |    FUNCTION    |
+                          |________________|
                          /      /    |    \        
                         /      /     |     \
                        /      /      |      \
                       /      /       |       \
                    TYPE   square  PARAMETERS  STATEMENTS
-                    |             |   |            \ 
-                    |             |   |             \
-                    |             |   |              \
-                   int         TYPE  num         return EXPRESSION
-                                |                            |
-                                |                            |
-                                |                            |
-                               int                       num * num
-        </code></pre></div>
+                    |              |       |            \ 
+                    |              |       |             \
+                    |              |       |              \
+                   int           TYPE     num         return EXPRESSION
+                                   |                            |
+                                   |                            |
+                                   |                            |
+                                  int                       num * num</span></code></pre></div>
         <h2>Semantics</h2>
         <p>This stage includes 3 major parts: symbol creation, name resolution, and type checking.</p>
 
