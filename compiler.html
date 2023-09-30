@@ -136,6 +136,7 @@ FUNCTION -> TYPE identifier ( PARAMETERS ) { STATEMENTS }</span>
                                    |                            |
                                    |                            |
                                   int                       num * num</span></code></pre></div>
+        <p></p>
         <h2>Semantics</h2>
         <p>This stage includes 3 major parts: symbol creation, name resolution, and type checking.</p>
 
@@ -218,24 +219,25 @@ square (type: int)  ==  [num (type: int)] * [num (type: int)]</span>
 
 <span style="color:red">OUTPUT:</span>
 
-Operation    Argument 1       Argument 2        Result
-FUNC_DECL      square
+<span style="color:violet">Operation    Argument 1       Argument 2        Result</span>
+<span style="color:gray">FUNC_DECL      square
 PARAM            num
 MULT             num             num            temp0
-RETURN          temp0
-        </code></pre></div>
-        <h2>Code Generation</h2>
+RETURN          temp0</span></code></pre></div>
+<p></p>        
+<h2>Code Generation</h2>
         <p>In the final stage, the intermediate language is converted into assembly. Symbols are converted into addresses that a computer can recognize. The stack is being properly manipulated when functions are being called and local variables are saved.</p>
-        <div class="code-container"><pre><code>INPUT:
+        <div class="code-container"><pre><code><span style="color:cyan">INPUT:</span>
 
-Operation    Argument 1       Argument 2        Result
-FUNC_DECL      square
+<span style="color:violet">Operation    Argument 1       Argument 2        Result</span>
+<span style="color:gray">FUNC_DECL      square
 PARAM            num
 MULT             num             num            temp0
-RETURN          temp0
+RETURN          temp0</span>
 
--------------------------------------------------------------
-OUTPUT:
+<span style="color:orange">-------------------------------------------------------------</span>
+
+<span style="color:red">OUTPUT:</span>
 
 square:
     PUSHQ %rbp
