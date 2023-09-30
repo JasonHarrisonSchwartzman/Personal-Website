@@ -78,18 +78,22 @@
         <h2>Scanner</h2>
         <p>This is the first stage of compiling where the source code is read as a stream of characters and 
             grouped into meaningful tokens. Some examples include <span style="color:blue">int</span> (for integers) <span style="color:orange">if</span> (for conditionals) and <span style="color:white">identifiers</span> (for variable and function names) as well as symbols used for syntax. </p>
-            <div class="code-container"><pre><code>i n t   s q u a r e     (       i n t     n u m      )        { 
+            <div class="code-container"><pre><code><span style="color:cyan">INPUT:</span>
+
+<span style="color:gray">i n t   s q u a r e     (       i n t     n u m      )        {</span>
 <span style="color:white">[ 1 ]      [ 2 ]      [ 3 ]     [ 4 ]     [ 5 ]    [ 6 ]    [ 7 ]</span>
-r e t u r n     n u m       *        n u m         ;
+<span style="color:gray">r e t u r n     n u m       *        n u m         ;</span>
    <span style="color:white">[ 8 ]        [ 9 ]     [ 10 ]     [ 11 ]      [ 12 ]</span>
-  }
+  <span style="color:gray">}</span>
 <span style="color:white">[ 13 ]</span>
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
- [ 1 ]           [ 2 ]                    [ 3 ]              [ 4 ]           [ 5 ]                 [ 6 ]                      [ 7 ]
-TOKEN_INT -> TOKEN_IDENTIFIER -> TOKEN_LEFT_PARENTHESES -> TOKEN_INT -> TOKEN_IDENTIFIER -> TOKEN_RIGHT_PARENTHESE -> TOKEN_LEFT_CURLY_BRACE ->
-   [ 8 ]             [ 9 ]            [ 10 ]           [ 11 ]              [ 12 ]
+<span style="color:red">OUTPUT:</span>
+
+ <span style="color:white">[ 1 ]           [ 2 ]                    [ 3 ]              [ 4 ]           [ 5 ]                 [ 6 ]                      [ 7 ]</span>
+<span style="color:gray">TOKEN_INT -> TOKEN_IDENTIFIER -> TOKEN_LEFT_PARENTHESES -> TOKEN_INT -> TOKEN_IDENTIFIER -> TOKEN_RIGHT_PARENTHESE -> TOKEN_LEFT_CURLY_BRACE -></span>
+   <span style="color:white">[ 8 ]             [ 9 ]            [ 10 ]           [ 11 ]              [ 12 ]</span>
 TOKEN_RETURN -> TOKEN_IDENTIFIER -> TOKEN_MULT -> TOKEN_IDENTIFIER -> TOKEN_SEMICOLON ->
       [ 13 ]
 TOKEN_RIGHT_CURLY_BRACE
