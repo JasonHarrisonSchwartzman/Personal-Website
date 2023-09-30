@@ -239,38 +239,38 @@ RETURN          temp0</span>
 
 <span style="color:red">OUTPUT:</span>
 
-square:
-    PUSHQ %rbp
-    MOVQ %rsp, %rbp
-    MOVQ %rdi, -8(%rbp)
-    MOVQ -8(%rbp), %rax
-    MOVQ -8(%rbp), %rbx
-    IMUL %rax, %rbx
-    MOVQ %rbx, %rax
-    POPQ %rbp
-    RET</code></pre></div>
-<h2>Conclusion</h2>
+<span style="color:cyan">square:</span>
+    <span style="color:cyan">PUSHQ</span> <span style="color:white">%rbp</span>
+    <span style="color:cyan">MOVQ</span> <span style="color:white">%rsp, %rbp</span>
+    <span style="color:cyan">MOVQ</span> <span style="color:white">%rdi, -8(%rbp)</span>
+    <span style="color:cyan">MOVQ</span> <span style="color:white">-8(%rbp), %rbx</span>
+    <span style="color:cyan">MOVQ</span> <span style="color:white">-8(%rbp), %rax</span>
+    <span style="color:cyan">IMUL</span> <span style="color:white">%rbx, %rax</span>
+    <span style="color:cyan">POPQ</span> <span style="color:white">%rbp</span>
+    <span style="color:cyan">RET</span></code></pre></div>
+<p></p>
+    <h2>Conclusion</h2>
 <p>You have now seen the development process for my compiler and compilers in general. 
     If you would like to try out the language for yourself, please check out JLang.</p>
-    <div class="code-container"><pre><code>INPUT:
+    <div class="code-container"><pre><code><span style="color:cyan">INPUT:</span>
 
 <span style="color:blue">int</span> <span style="color:red">square</span>(<span style="color:blue">int</span> <span style="color:white">num</span>) {
     <span style="color:orange">return</span> <span style="color:white">num</span> * <span style="color:white">num</span>;
 }
 
------------------------------------------------------
-OUTPUT:
+<span style="color:orange">-----------------------------------------------------</span>
 
-square:
-PUSHQ %rbp
-MOVQ %rsp, %rbp
-MOVQ %rdi, -8(%rbp)
-MOVQ -8(%rbp), %rax
-MOVQ -8(%rbp), %rbx
-IMUL %rax, %rbx
-MOVQ %rbx, %rax
-POPQ %rbp
-RET</code></pre></div>
+<span style="color:red">OUTPUT:</span>
+
+<span style="color:cyan">square:</span>
+    <span style="color:cyan">PUSHQ</span> <span style="color:white">%rbp</span>
+    <span style="color:cyan">MOVQ</span> <span style="color:white">%rsp, %rbp</span>
+    <span style="color:cyan">MOVQ</span> <span style="color:white">%rdi, -8(%rbp)</span>
+    <span style="color:cyan">MOVQ</span> <span style="color:white">-8(%rbp), %rbx</span>
+    <span style="color:cyan">MOVQ</span> <span style="color:white">-8(%rbp), %rax</span>
+    <span style="color:cyan">IMUL</span> <span style="color:white">%rbx, %rax</span>
+    <span style="color:cyan">POPQ</span> <span style="color:white">%rbp</span>
+    <span style="color:cyan">RET</span></code></pre></div></code></pre></div>
     </div>
 </body>
 </html>
