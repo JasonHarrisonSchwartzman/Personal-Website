@@ -170,6 +170,13 @@ body {
     display: inline-block;
 }
 
+.skill-container {
+    background-color:white;
+    flex-direction:row;
+    padding:10px;
+    width:fit-content;
+}
+
 /* Dropdown content (hidden by default) */
 .dropdown-content {
     display: none;
@@ -229,4 +236,42 @@ body {
 }
 .icon {
     margin-right: 8px; /* Add some space to the right of the icon */
+}
+
+ /* Define the styles for the image container */
+ .image-container {
+    position: relative;
+    display: inline-block;
+    margin-right: 30px;
+    padding:15px;
+}
+
+/* Define the styles for the image */
+.image-container img {
+    width: auto;
+    height: 100px;
+    transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+
+/* Define the styles for the hover effect */
+.image-container:hover img {
+    transform: scale(1.15); /* Increase the size on hover (1.2 times the original size) */
+}
+
+/* Define the styles for the hover text */
+.hover-text {
+    position: absolute;
+    top: 50%; /* Position it vertically in the middle */
+    left: 50%; /* Position it horizontally in the middle */
+    transform: translate(-50%, -50%); /* Center it precisely */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    padding: 10px 20px;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Add a smooth transition effect */
+}
+
+/* Show the hover text on hover */
+.image-container:hover .hover-text {
+    opacity: 1;
 }
