@@ -58,7 +58,7 @@
         <img src="/images/rtt.png" width="500px">
         <h2>Experiment</h2>
         <p>To set up our experiment we launched instances on AWS across the world in locations such as South Korea, Germany, and the United States. 
-            Instances were either clients, VPNs, or servers.</p>
+            Instances were either clients, VPNs, or servers. Our experiment included 84 VPN cases vs. 66 direct cases. We are testing to see if our methods of detection either through different or ratio of the two round trip times yield high true positive and low false negative results.</p>
         <p>Using PyShark, a Python wrapper for tshark (Wireshark), we are able to read incoming packets and perform live analysis on them on the server. The script follows the below psuedocode.</p>
         <div class="code-container"><pre><code><span style="color:orange">IF</span> packet has <span style="color:blue">SYN</span> flag AND sent to server
     store client IP address <span style="color:white">[i]</span>
@@ -82,6 +82,9 @@
         client is <span style="font-weight:bold">DIRECT CONNECTION</span>
     <span style="color:orange">ELSE</span>
         client is <span style="color:red; font-weight:bold">USING VPN</span></code></pre></div>
+        <h2>Results</h2>
+        <img src="/images/geospoofingresults.png" width="500px">
+        <p>These results show there is high chance >99% that we are able to distinguish between true positives and false positives with both the ratio and difference method. </p>
         <h2>Future Work</h2>
         <p>In our tests we rely on certain services to be open such as port 22 for SSH. If this service is disabled 
             we are unable to use our methods to get a probing Round Trip Time. Our methods on finding Round Trip Time should be explored in order to maximize the probability at least one service would be active on the client's end.
