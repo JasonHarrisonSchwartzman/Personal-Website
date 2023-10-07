@@ -69,18 +69,39 @@
             a compiler for my own Programming Language.</p>
         <h1>JLang Overview</h1>
         <p>JLang is very similar to C in terms of syntax and semantics.</p>
-        <h2>Variables</h2>
+        <h2>Variables & Expressions</h2>
         <div class="code-container"><pre><code><span style="color:blue">int</span> <span style="color:white">x = </span>10<span style="color:white">; </span><span style="color:gray"><em>//declaration of x, x is 10</em></span>
 <span style="color:white">x =</span> 5<span style="color:white">;</span><span style="color:gray"><em> //assignment of x, x is 5</em></span>
 <span style="color:red">printd</span><span style="color:white">(x);</span><span style="color:gray"><em> //prints 5</em></span>
-<span style="color:blue">int</span><span style="color:white"> x = </span>20<span style="color:white">;</span><span style="color:gray"><em> //ERROR: redeclaration of x within same scope</em></span></code></pre></div>       
-<p></p>
-<h2>Expressions</h2>
-<div class="code-container"><pre><code><span style="color:blue">int </span><span style="color:white">x = </span>2 <span style="color:white">* </span>3 <span style="color:white">+ </span>5 <span style="color:white">-</span> 2 <span style="color:white">/</span> 8<span style="color:white">;</span><span style="color:gray"><em> //read BACKWARDS in order (no PEMDAS), evaluates to 4</em></span>
-<span style="color:blue">int </span><span style="color:white">y = </span>3 <span style="color: white">&& x < </span>10<span style="color:white">;</span><span style="color:gray"><em> // 10 is less than x (x is 4) FALSE (0), 3 (TRUE) AND 0 (FALSE) is FALSE (0), y is 0</em></span></code></pre></div>
+<span style="color:blue">int</span><span style="color:white"> x = </span>20<span style="color:white">;</span><span style="color:gray"><em> //ERROR: redeclaration of x within same scope</em></span>
+
+<span style="color:blue">int </span><span style="color:white">z = </span>2 <span style="color:white">* </span>3 <span style="color:white">+ </span>5 <span style="color:white">-</span> 2 <span style="color:white">/</span> 8<span style="color:white">;</span><span style="color:gray"><em> //read BACKWARDS in order (no PEMDAS), evaluates to 4</em></span>
+<span style="color:blue">int </span><span style="color:white">y = </span>3 <span style="color: white">&& z < </span>10<span style="color:white">;</span><span style="color:gray"><em> // 10 is less than z (z is 4) FALSE (0), 3 (TRUE) AND 0 (FALSE) is FALSE (0), y is 0</em></span></code></pre></div>       
 <p></p> 
-<h2>Functions</h2>   
-<div class="code-container"><pre><code></code></pre></div>  
+<h2>Functions & Control Flow</h2>   
+<div class="code-container"><pre><code><span style="color:blue">int </span><span style="color:red">foo</span><span style="color:white">(</span><span style="color:blue">int </span><span style="color:white">a, </span><span style="color:blue">int </span><span style="color:white">b) {</span><span style="color:gray"><em> //function foo, has params a and b both of type int, returns an int</em></span>
+    <span style="color:orange">if </span><span style="color:white">(</span>5 <span style="color:white">== a) {</span><span style="color:gray"><em> //if a is 5, run these lines</em></span>
+        <span style="color:blue">int </span><span style="color:white">a = </span>2<span style="color:white">;</span><span style="color:gray"><em> //new scope, a is 2</em></span>
+        <span style="color:orange">return </span><span style="color:white">a - </span>10<span style="color:white">;</span><span style="color:gray"><em> //returns the value of 10 - 2 which is 8</em></span>
+    <span style="color:white">}</span>
+    <span style="color:orange">elseif </span><span style="color:white">(</span>5 <span style="color:white">< a) {</span><span style="color:gray"><em> //if above condition is false, if a is less than 5, run these lines</em></span>
+        <span style="color:orange">return </span><span style="color:white">a;</span><span style="color:gray"><em> //returns whatever a is</em></span>
+    <span style="color:white">}</span>
+    <span style="color:orange">else </span><span style="color:white">{</span><span style="color:gray"><em> //if both conditions fail, run these lines</em></span>
+        <span style="color:white">a = a * b;</span><span style="color:gray"><em> //sets parameter a to b * a</em></span>
+    <span style="color:white">}</span>
+    <span style="color:orange">for </span><span style="color:white">(</span><span style="color:blue">int </span><span style="color:white">i = </span>0<span style="color:white">; b < i; i = i + </span>1<span style="color:white">) {</span><span style="color:gray"><em> //initialize i to 0, run this code while condition i is less than b holds, increment i by 1 after each iteration</em></span>
+        <span style="color:red">printd</span><span style="color:white">(i);</span><span style="color:gray"><em> //prints current value of i</em></span>
+    <span style="color:white">}</span>
+    <span style="color:gray"><em>//this is an example of an equivalent while loop
+    //int i = 0;
+    //while (i < b) {
+    //   printd(i);
+    //   i = i + 1; 
+    //}
+    </em><span style="color:orange">return </span><span style="color:white">i;</span><span style="color:gray"><em> //ERROR variable i in for loop is no longer in scope, however the equaivalent while loop would make it in scope</em></span>
+    <span style="color:orange">return </span><span style="color:white">b;</span><span style="color:gray"><em> //returns b, last line of function MUST be a return statement</em></span>
+<span style="color:white">}</span></code></pre></div>  
 <p></p>
 <h1>Development Process</h3>
         <p>This process was broken down into 5 major parts: Scanner, Parser, Semantics, Intermediate Representation, Code Generation. I used this <a href="https://www3.nd.edu/~dthain/compilerbook/" target="_blank">textbook</a> as a guide throughout.</p>
