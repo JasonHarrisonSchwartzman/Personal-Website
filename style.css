@@ -50,6 +50,8 @@ nav li {
     flex-direction: row;
     width: 25%;
     box-sizing: border-box;
+    overflow-x: auto;
+    overflow-y: auto;
 }
 textarea {
         width: 45%;
