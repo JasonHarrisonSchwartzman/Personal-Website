@@ -52,6 +52,7 @@ nav li {
     box-sizing: border-box;
     overflow-x: auto;
     overflow-y: auto;
+    height: 100%;
 }
 textarea {
         width: 45%;
