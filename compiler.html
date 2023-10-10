@@ -300,6 +300,7 @@ RETURN          temp0</span>
 <span style="color:cyan">square:</span>
     <span style="color:cyan">PUSHQ</span> <span style="color:white">%rbp</span>
     <span style="color:cyan">MOVQ</span> <span style="color:white">%rsp, %rbp</span>
+    <span style="color:cyan">SUBQ</span> <span style="color:white">$8, %rsp</span>
     <span style="color:cyan">MOVQ</span> <span style="color:white">%rdi, -8(%rbp)</span>
     <span style="color:cyan">MOVQ</span> <span style="color:white">-8(%rbp), %rbx</span>
     <span style="color:cyan">MOVQ</span> <span style="color:white">-8(%rbp), %rax</span>
