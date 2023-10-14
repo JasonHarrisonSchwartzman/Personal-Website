@@ -221,7 +221,7 @@ body {
 .github-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #4CAF50; /* Green color */
+    background-color: rgb(167, 164, 164); /* Green color */
     color: white; /* Text color */
     text-decoration: none; /* Remove underline from the link */
     border: none; /* Remove button border */
@@ -233,9 +233,28 @@ body {
     margin-right: 10px;
 }
 
+.linkedin-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: blue; /* Green color */
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline from the link */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    width: fit-content;
+    text-align: center;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.linkedin-button:hover {
+    background-color: rgb(69, 69, 205); /* Slightly darker green color on hover */
+}
+
 /* Style the button on hover */
 .github-button:hover {
-    background-color: #45a049; /* Slightly darker green color on hover */
+    background-color: gray; /* Slightly darker green color on hover */
 }
 .icon {
     margin-right: 8px; /* Add some space to the right of the icon */
