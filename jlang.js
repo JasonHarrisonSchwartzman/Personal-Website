@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return ret;
     }
     document.getElementById("run").addEventListener("click", () => {
+        document.getElementById("output").textContent = 'Sending code to server...'
         // Get the user's input
         const inputData = cEditor.getValue();
         console.log(inputData);
