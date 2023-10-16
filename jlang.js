@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function convertToASCII(str) {//code not needed but just in case
         let ret = "";
         for (let i = 0; i < str.length; i++) {
-            console.log(str.charCodeAt(i) + ' ' + str.charAt(i));
             if (str.charCodeAt(i) > 65000) {
                 ret+='      ';
                 i+=6;
@@ -19,11 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return ret;
     }
     document.getElementById("run").addEventListener("click", () => {
-        document.getElementById("output").textContent = 'Sending code to server...'
-        // Get the user's input
+        document.getElementById("output").textContent = 'Sending code to server...';
         const inputData = cEditor.getValue();
-        console.log(inputData);
-        // Send the input data to the server using Fetch API
         fetch("/jlang/code", {
             method: "POST",
             headers: {
@@ -33,11 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(response => response.json())
         .then(data => {
-            // Display the server's response on the webpage
             document.getElementById("output").textContent = `${convertToASCII(data.result)}`;
         })
         .catch(error => {
-            console.error("Error:", error);
+            console.error("Error: ", error);
         });
     });
     
