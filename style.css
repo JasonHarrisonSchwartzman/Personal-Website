@@ -32,6 +32,24 @@ nav li {
     padding: 10px 20px; /* Adjust the button padding */
     width:100px;
     margin-bottom:10px;
+    margin-right:10px;
+}
+
+.samplecodebutton {
+    display:inline-block;
+    text-decoration: none;
+    color: black; /* Green text */
+    background-color: orange; /* Dark gray button background */
+    font-weight: bold;
+    font-size: 18px; /* Adjust the font size as needed */
+    padding: 10px 20px; /* Adjust the button padding */
+    width:auto;
+    margin-bottom:10px;
+}
+
+.samplecodebutton:hover {
+    background-color: darkorange; /* Green background on hover */
+    color: black; /* Dark gray text on hover */
 }
 
 .code-container {
