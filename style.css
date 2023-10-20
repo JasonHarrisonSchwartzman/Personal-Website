@@ -186,16 +186,16 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.5); /* Green shadow */
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
 .skill-container {
     background-color:white;
     flex-direction:row;
     padding:10px;
     width:fit-content;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
 /* Dropdown content (hidden by default) */
@@ -206,6 +206,15 @@ body {
     min-width: 160px;
     z-index: 1;
 }
+
+.samplecodeitems {
+    background-color: red;
+    color: white;
+}
+.samplecodeitems:hover {
+    background-color: yellow;
+}
+
 
 /* Style for dropdown items */
 .dropdown-content a {

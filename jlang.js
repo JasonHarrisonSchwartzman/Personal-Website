@@ -17,6 +17,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         return ret;
     }
+    document.getElementById("sample1").addEventListener("click", () => {
+        cEditor.getDoc().setValue('//Sample Code 1');
+    });
+    document.getElementById("sample2").addEventListener("click", () => {
+        cEditor.getDoc().setValue('//Sample Code 2');
+    });
+    document.getElementById("sample3").addEventListener("click", () => {
+        cEditor.getDoc().setValue('//Sample Code 3');
+    });
     document.getElementById("run").addEventListener("click", () => {
         document.getElementById("output").textContent = 'Sending code to server...';
         const inputData = cEditor.getValue();
