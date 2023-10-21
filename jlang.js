@@ -58,7 +58,20 @@ int start() {
 }`);
     });
     document.getElementById("sample3").addEventListener("click", () => {
-        cEditor.getDoc().setValue('//Sample Code 3');
+        cEditor.getDoc().setValue(`char ~pointer = "Pointer memory location ";
+char ~value = "Dereferenced pointer value ";
+char ~newLine = "\n";
+int x = 10;
+int start() {
+    int ~y = ?x;//memory location of x
+    prints(pointer);
+    printd(y);
+    prints(newLine);
+    int z = @y;//dereferenced value of y
+    prints(value);
+    printd(z);
+    prints(newLine);
+}`);
     });
     document.getElementById("run").addEventListener("click", () => {
         document.getElementById("output").textContent = 'Sending code to server...';
