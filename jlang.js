@@ -60,7 +60,7 @@ int start() {
     document.getElementById("sample3").addEventListener("click", () => {
         cEditor.getDoc().setValue(`char ~pointer = "Pointer memory location ";
 char ~value = "Dereferenced pointer value ";
-char ~newLine = "\n";
+char ~newLine = "\\n";
 int x = 10;
 int start() {
     int ~y = ?x;//memory location of x
