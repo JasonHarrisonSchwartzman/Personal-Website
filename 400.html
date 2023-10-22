@@ -9,6 +9,7 @@
 </head>
 <body>
     <header>
+        <div style="position: fixed; z-index:10">
         <nav>
             <div class="button-container">
                 <a href="/" class="button">Home</a>
@@ -27,6 +28,7 @@
                 <a href="/contact" class="button">Contact</a>
             </div>
         </nav>
+        </div>
     </header>
     <style>
         .image-container {
@@ -43,18 +45,23 @@
 
 
     </style>
-    <div style="text-align:center"class="terminal">
+    <div style="text-align:center; margin-top:40px;"class="terminal">
         <div class="image-container">
-            <img src="/images/catinlitterbox.jpg" alt="Image Left" class="left">
+            <img src="/images/catinlitterbox.jpg" alt="Image Left" class="left" >
+            
             <img src="/images/catinlitterbox.jpg" alt="Image Right" class="right">
         </div>
-        <h1 style="font-size: 100px; margin-top:-310px">Error 404</h1>
+        <h1 style="font-size:100px; margin-top:-130px">Error 404</h1>
         <h2 style="margin-top:-10px">Woah!</h2>
         <h2>It looks like you're trying explore uncharted territory in my website.</h2>
         <h2>This is most likely a mistake on your part.</h2>
         <h2>Find your way back with the buttons above.</h2>
         <h2>Here are some pictures of my cat for your troubles.</h2>
-        <img width="25%" height="auto" src="/images/upsidedowncat.jpg"/>
+        <div class="image-container">
+            <img width="25%" height="auto" src="/images/upsidedowncat.jpg"/>
+            <img width="25%" height="auto" src="/images/catonrug.jpg"/>
+            <img width="25%" height="auto" src="/images/computercat.jpg"/>
+        </div>
     </div>
 </body>
 </html>
