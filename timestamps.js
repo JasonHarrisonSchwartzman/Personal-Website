@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     fetch("/code-injection/timestamps", {
-        method: "POST",
+        method: "GET",
         headers: {
             "Content-Type": "application/json",
         },
