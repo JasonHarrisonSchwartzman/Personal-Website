@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
         console.log(data.result);
         timestamps = "";
-        for (data in data.result) {
-            timestamps+=data.result[data]+'\n';
+        for (let i = 0; i < data.result.length; i++) {
+            timestamps+=data.result[i]+'\n';
         }
         document.getElementById("timestamps").textContent = `${timestamps}`;
     })
