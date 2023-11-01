@@ -8,7 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(response => response.json())
     .then(data => {
         console.log(data.result);
-        document.getElementById("timestamps").textContent = `${data.result}`;
+        timestamps = "";
+        for (data in data.result) {
+            timestamps+=data+'\n';
+        }
+        document.getElementById("timestamps").textContent = `${timestamps}`;
     })
     .catch(error => {
         console.error("Error: ", error);
