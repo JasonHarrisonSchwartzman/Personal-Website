@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    fetch("/jlang/code", {
+    fetch("/code-injection/timestamps", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ data: inputData }),
     })
     .then(response => response.json())
     .then(data => {
