@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(data.result);
         timestamps = "";
         for (data in data.result) {
-            timestamps+=data+'\n';
+            timestamps+=data.result[data]+'\n';
         }
         document.getElementById("timestamps").textContent = `${timestamps}`;
     })
