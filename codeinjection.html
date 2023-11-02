@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Jason Schwartzman</title>
     <link rel="icon" href="/images/JS.png"/>
 </head>
@@ -37,17 +38,24 @@
                 <a href="/projects/malware-analysis" class="button">Malware Analysis</a>
                 <a href="/projects/geo-spoofing-detection" class="button">Geo-Spoofing Detection</a>
                 <a href="/projects/personal-website" class="button">Personal Website</a>
-                <a href="/projects/code-injection" class="button">Code Injection</a>
+                <a href="/projects/code-injection" class="curbutton">Code Injection</a>
             </div>
         </nav></div>
     </header>
     <div style="margin-top: 110px;"class="terminal">
-        <h1>Code Injection</h1>
+        <h1>Code Injection / Virus</h1>
+        <div style="flex-direction:row"><a href="https://github.com/JasonHarrisonSchwartzman/ELF-Code-Injection" class="github-button" target="_blank">
+                <i class="fab fa-github icon"></i>GitHub Source Code</a>
+                <a href="https://github.com/JasonHarrisonSchwartzman/Chess/archive/refs/heads/master.zip" class="github-button" download>
+                    <i class="fas fa-download icon"></i>VM with Virus 
+                </a>
+            <a href="/projects/code-injection/timestamps" class="button" target="_blank">Timestamps</a>
+            </div>
         <p>Start Date: October 2023</p>
         <p>Status: In progress</p>
-        <p>In my final semester in my undergrad, this project was one of the possible final projects for my Computer Security course. The objective is to create a virus that infects all executables 
-            in the target directory and when those executables are ran the virus's payload runs before the normal program. I attempted to insert code into the main function of the ELF file, however, this would corrupt the ELF file. I chose a different project to complete in this course due to complexity of this project and deadline constraints and decided to work on it at a later time.</p>
-        <p></p>
+        <p>In my final semester during my undergrad, this project was one of the possible final projects for my Computer Security course. The objective is to create a virus that infects all executables 
+            in the target directory and when those executables are ran the virus's payload runs before the normal program. I attempted to insert code into the main function of the ELF file, however, this would corrupt the ELF file. I chose a different final project to complete in the course due to complexity of this project and deadline constraints and decided to work on the virus project at a later time.</p>
+        <p>This virus contains a payload that will send an HTTP POST request to this web server and log the time and date in a database. You can see all timestamps <a href="/projects/code-injections/timestamps">here</a>. You can download the VM with the virus pre-installed here.</p>
     </div>
 </body>
 </html>
