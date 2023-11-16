@@ -61,6 +61,8 @@
         <p>This virus will infect all files in the current directly injecting the malicious payload into all executables. The payload contains code that pings this server using an HTTP POST request. The server logs the time and stores it into a database that can be viewed here. Please note that there is no other information being captured or sent to this server. </p>
             <h2>Download</h2>
         <p>You can download and run the virus in the given VM (recommended) or download the virus as is.</p>
+        <h2>Usage</h2>
+        <p>In the current directory where the virus is installed enter: python3 inject.py in the terminal.</p>
             <h2>Development Process</h2>
             <p>With ELF files, you are unable to simply put the code in the text section of the ELF. This will cause the program to segfault.</p>
             <p>To solve this, I researched the format of ELF files and determined most of the problem was coming from misaligned offets due to the change of size in the file.</p>
