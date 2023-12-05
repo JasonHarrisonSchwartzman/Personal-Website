@@ -67,7 +67,7 @@
             <p>With ELF files, you are unable to simply put the code in the text section of the ELF. This will cause the program to segfault. Other edits are necessary.</p>
             <p>To solve this, I researched the format of ELF files and determined most of the problem was coming from misaligned offets due to the change of size in the file.
             </p>
-            <p>
+            <p> 
                 There are multiple places one can inject the malicious code. I did some experimentation with injecting code directly into the .text section of code specifically the main function. 
                 I was able to determine what offsets and values needed to be changed in order to prevent the file from corrupting.
             </p>
