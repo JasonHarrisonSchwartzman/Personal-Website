@@ -71,6 +71,7 @@
             <p> 
                 There are multiple places one can inject the malicious code. I did some experimentation with injecting code directly into the .text section of code specifically the main function. 
                 I was able to determine what offsets and values needed to be changed in order to prevent the file from corrupting.
+                However, this method would prove to be invalid as sometimes the virtual address that I changed were used in computations within the code section that now yield different answers.
             </p>
             <h2>Timestamps</h2>
 
