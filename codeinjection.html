@@ -68,10 +68,16 @@
         </h2>
         <p>
             In order to add the payload to the targeted file, we must first edit values that will both allow the virus to run while also preserving the original functionality of the code.
-            First, we need to find a place to inject the code so that it doesn't interfere with any other segment. Most ELF files contain segments of executable code with ammounts of room between the end of this segment and another segment.
+            First, we need to find a place to inject the code so that it doesn't interfere with any other segment. Most ELF files contain segments of executable code with amounts of room between the end of this segment and another segment.
             If there is enough virtual address space that fits the size of the payload we can inject it into this location. 
             Most ELF files have sections padded with zeros at the end of the data for that section. 
-            Lastly, we change the entry point to point to the location of the virus.
+            This is due to the fixed sized of pages in page tables which are usually 4096 (0x1000) bytes. 
+            When the program gets loaded into memory it segments get loaded into memory or in this case page tables. 
+            Knowing this, we can inject the payload starting at the end of the last section loaded into the execution segment by changing the bytes, so they represent the correct instructions.
+            Then, we change the memory size and file size of the execution segment so our payload also gets loaded into memory.
+            The last instruction of our payload needs to point to the original entry point of the infected file so we calculate this too.
+            Lastly, we change the entry point to point to the location of the payload.
+            And we're done!
         </p>
             <h2>Download</h2>
         <p>You can download and run the virus in the given VM (recommended) or download the virus as is.</p>
