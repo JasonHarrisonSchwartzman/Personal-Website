@@ -75,8 +75,23 @@
             When the program gets loaded into memory it segments get loaded into memory or in this case page tables. 
             Knowing this, we can inject the payload starting at the end of the last section loaded into the execution segment by changing the bytes, so they represent the correct instructions.
             Then, we change the memory size and file size of the execution segment so our payload also gets loaded into memory.
-            The last instruction of our payload needs to point to the original entry point of the infected file so we calculate this too.
-            Lastly, we change the entry point to point to the location of the payload.
+            </p>
+            <img style="width:500px" src="/images/programheader.png">
+            <p></p>
+            <p>Here we can see the segment that contains executable code. It's virtual address range is from 0x1000 to 0x1245. The next segment that gets loaded into memory begins at virtual address 0x2000 leaving 0xdbb space open.
+         
+            </p>
+            <img style="width:500px" src="/images/sectionheader.png">  
+            <p></p>
+            <p>This is the last section that contains executable code. The end of the section is at 0x1245 which is where we will inject the code.</p>
+            <p>The last instruction of our payload needs to point to the original entry point of the infected file so we calculate this too.</p>
+            <div class="code-container"><pre><code><span style="color:blue">length_of_code_injection</span> = 0x27b 
+<span style="color:blue">instruction_pointer</span><span style="color:white"> =</span> <span style="color:blue">inject_offset</span><span style="color:white"> + </span><span style="color:blue">length_of_code_injection</span>
+<span style="color:blue">jmp_to_start_operand</span><span style="color:white"> =</span> 0xffffffff <span style="color:white">+ </span>1 <span style="color:white">-</span> <span style="color:orange">abs</span><span style="color:white">(</span><span style="color:blue">OLD_ENTRY_POINT</span><span style="color:white"> -</span> <span style="color:blue">instruction_pointer</span><span style="color:white">)</span></code></pre></div>
+</p>
+<p>           
+Lastly, we change the entry point to point to the location of the payload.
+            insert pic
             And we're done!
         </p>
             <h2>Download</h2>
