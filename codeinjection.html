@@ -78,7 +78,7 @@
             </p>
             <img style="width:500px" src="/images/programheader.png">
             <p></p>
-            <p>Here we can see the segment that contains executable code. It's virtual address range is from 0x1000 to 0x1245. The next segment that gets loaded into memory begins at virtual address 0x2000 leaving 0xdbb space open.
+            <p>Here we can see the segment that contains executable code. Its virtual address range is from 0x1000 to 0x1245. The next segment that gets loaded into memory begins at virtual address 0x2000 leaving 0xdbb space open.
          
             </p>
             <img style="width:500px" src="/images/sectionheader.png">  
@@ -90,27 +90,14 @@
 <span style="color:blue">jmp_to_start_operand</span><span style="color:white"> =</span> 0xffffffff <span style="color:white">+ </span>1 <span style="color:white">-</span> <span style="color:orange">abs</span><span style="color:white">(</span><span style="color:blue">OLD_ENTRY_POINT</span><span style="color:white"> -</span> <span style="color:blue">instruction_pointer</span><span style="color:white">)</span></code></pre></div>
 </p>
 <p>           
-Lastly, we change the entry point to point to the location of the payload.
-            insert pic
-            And we're done!
+Lastly, we change the entry point to point to the location of the payload.</p>
+<img style="width:500px" src="/images/entrypoint.png"> 
+            <p></p>
+            <p>And we're done!
         </p>
-            <h2>Download</h2>
-        <p>You can download and run the virus in the given VM (recommended) or download the virus as is.</p>
-        <h2>Usage</h2>
-        <p>In the current directory where the virus is installed enter: python3 inject.py in the terminal.</p>
-            <h2>Development Process</h2>
-            <p>With ELF files, you are unable to simply put the code in the text section of the ELF. This will cause the program to segfault. Other edits are necessary.</p>
-            <p>To solve this, I researched the format of ELF files and determined most of the problem was coming from misaligned offets due to the change of size in the file.
-            My first step was to succesfully inject code into a hello world program.
-            </p>
-            <p> 
-                There are multiple places one can inject the malicious code. I did some experimentation with injecting code directly into the .text section of code specifically the main function. 
-                I was able to determine what offsets and values needed to be changed in order to prevent the file from corrupting.
-                However, this method would prove to be invalid as sometimes the virtual address that I changed were used in computations within the code section that now yield different answers.
-            </p>
             <h2>Timestamps</h2>
 
-            <p>The timestamps you see include all times the injected code ran successfully in an effected file. This is the only information that can be displayed as the virus does not capture any info. You can run the effected application and then view this page to see a timestamps that should match when you started the program if the code was succesfully ran.</p>
+            <p>You can view the timestamps to see all times the injected code ran successfully in an effected file. Try running the virus in the provided VM, run an effected file, and then view the timestamps page to see when the effective file was ran.</p>
         </div>
 </body>
 </html>
