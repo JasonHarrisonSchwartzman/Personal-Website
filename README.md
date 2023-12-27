@@ -6,4 +6,4 @@ This project contains my [website](https://jasonhschwartzman.com).
 
 ### Online Compiler
 
-You can enter code in my [programming language](https://github.com/JasonHarrisonSchwartzman/Compiler) on my website to have it compile, run, and give output.
+You can enter code in my [programming language](https://github.com/JasonHarrisonSchwartzman/Compiler) on my [website](https://jasonhschwartzman.com/jlang) to have it compile, run, and give output.
