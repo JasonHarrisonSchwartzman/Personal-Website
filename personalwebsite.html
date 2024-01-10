@@ -58,11 +58,6 @@
             the body of which contains the code the user writes. The server handles this request by creating a file and then compiling and running the file.
             The server sends back the compiling result if there is an error or sends the output to the code if compilation was successful. 
 
-            One difficulty, I ran into prevented multiple requests from different clients writing to the same file on the server. As an attempt to fix
-            this I created the files based on the IP address of the request. This led to another problem as I was unable to capture the IP address
-            of the client due to nginx's lack of functionality for web servers hosted on virtual machines. To combat this, I decided to handle requests 
-            through cookies rather than IP address. I randomly generated an ID for a client which would translate to the name of the file to be created for compilation and executing.
-            The benefit of this method is that two clients on the same network with the same IP address will have different files to manipulate as they will have different cookie values.
         </p>
     </div>
 </body>
