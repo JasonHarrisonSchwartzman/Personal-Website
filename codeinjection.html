@@ -54,8 +54,8 @@
         <p>Start Date: October 2023</p>
         <p>Status: Completed as of December 2023</p>
         <p>The project's objective is to create a virus that infects all executables 
-            in the target directory. When those executables are ran the virus's payload runs before the normal program. 
-            Attempting to insert code into the main function of the ELF file will corrupt the ELF file most likely causing it to seg fault. 
+            in the target directory. When those executables are ran, the virus's payload runs before the normal program. 
+            Attempting to insert code into the main function of the ELF file will corrupt the ELF file and most likely causing it to seg fault. 
             However, injecting it to a precise location and changing a few values in the ELF file as well, we can accomplish this goal.
         </p>
         <h2>
@@ -68,13 +68,13 @@
             Virus Infection Method
         </h2>
         <p>
-            In order to add the payload to the targeted file, we must first edit values that will both allow the virus to run while also preserving the original functionality of the code.
+            In order to add the payload to the targeted file, we must first edit values that will allow both the virus to run while also preserving the original functionality of the program.
             First, we need to find a place to inject the code so that it doesn't interfere with any other segment. Most ELF files contain segments of executable code with amounts of room between the end of this segment and another segment.
             If there is enough virtual address space that fits the size of the payload we can inject it into this location. 
-            Most ELF files have sections padded with zeros at the end of the data for that section. 
+            Most ELF files have sections padded with zeros following the data. 
             This is due to the fixed sized of pages in page tables which are usually 4096 (0x1000) bytes. 
-            When the program gets loaded into memory it segments get loaded into memory or in this case page tables. 
-            Knowing this, we can inject the payload starting at the end of the last section loaded into the execution segment by changing the bytes, so they represent the correct instructions.
+            When the program gets loaded into memory its segments get loaded into memory specifically page tables. 
+            Knowing this, we can inject the payload starting at the end of the last section loaded into the execution segment by changing the bytes, so they represent the correct instructions of the payload.
             Then, we change the memory size and file size of the execution segment so our payload also gets loaded into memory.
             </p>
             <img style="width:500px" src="/images/programheader.png">
