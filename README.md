@@ -1,6 +1,6 @@
 # Personal-Website
 
-This project contains source code for my [website](https://jasonhschwartzman.com). 
+This project contains source code for my [website](https://jasonhschwartzman.com). Updated frequently.
 
 ## Features
 
