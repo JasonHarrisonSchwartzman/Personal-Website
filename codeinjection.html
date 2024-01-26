@@ -68,7 +68,7 @@
             Virus Infection Method
         </h2>
         <p>
-            In order to add the payload to the targeted file, we must first edit values that will allow both the virus to run while also preserving the original functionality of the program.
+            In order to add the payload to the targeted file, we must first edit values within the ELF format that will allow both the virus to run while also preserving the original functionality of the program.
             First, we need to find a place to inject the code so that it doesn't interfere with any other segment. Most ELF files contain segments of executable code with amounts of room between the end of this segment and another segment.
             If there is enough virtual address space that fits the size of the payload we can inject it into this location. 
             Most ELF files have sections padded with zeros following the data. 
