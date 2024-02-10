@@ -88,7 +88,6 @@ int start() {
             document.getElementById("output").textContent = `${convertToASCII(data.result)}`;
         })
         .catch(error => {
-            console.error("Error: ", error);
         });
     });
     
