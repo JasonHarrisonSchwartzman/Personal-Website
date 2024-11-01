@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        document.getElementById("timestamps").textContent = `${data.split("\n")[0]}`;
+        document.getElementById("timestamps").textContent = `${data.result.split("\n")[0]}`;
     })
     .catch(error => {
         console.log("error");
