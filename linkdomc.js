@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     fetch("https://championmastery.gg/player?riotId=linkdomc+%23zink&region=NA&lang=en_US", {
+        mode: "no-cors",
         method: "GET",
         headers: {
             "Content-Type": "application/json",
