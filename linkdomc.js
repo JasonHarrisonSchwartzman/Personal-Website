@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data.result);
+        console.log(data.result.result);
         document.getElementById("timestamps").textContent = `${data.result.split("\n")[0]}`;
     })
     .catch(error => {
