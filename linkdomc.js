@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data)
+        console.log("hi")
         timestamps = "";
         for (let i = data.result.length - 1; i > -1; i--) {
             timestamps+=data.result[i]+'\n';
