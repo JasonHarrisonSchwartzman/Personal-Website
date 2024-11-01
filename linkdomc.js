@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
             "Content-Type": "application/json",
         }
     })
-    .then(response => console.log(response.status))
     .then(response => response.json())
     .then(data => {
         console.log("hi")
@@ -17,5 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("timestamps").textContent = `${timestamps}`;
     })
     .catch(error => {
+        console.log("error")
+        console.log(error)
     });   
 });
