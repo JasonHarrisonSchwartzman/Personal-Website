@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    fetch("/linkdomc", {
+    fetch("/linkdomc-data", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
