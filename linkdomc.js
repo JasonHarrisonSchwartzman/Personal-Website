@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(data.result);
         let number = data.result.split("\n")[0];
         let formattedNumber = Number(number).toLocaleString();
-        document.getElementById("timestamps").textContent = `${formattedNumber}`;
+        document.getElementById("timestamps").textContent = `${"Yasuo Mastery Points: " + formattedNumber}`;
     })
     .catch(error => {
         console.log("error");
