@@ -8,7 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(response => response.json())
     .then(data => {
         console.log(data.result);
-        document.getElementById("timestamps").textContent = `${data.result.split("\n")[0]}`;
+        let number = data.result.split("\n")[0];
+        let formattedNumber = Number(number).toLocaleString();
+        document.getElementById("timestamps").textContent = `${formattedNumber}`;
     })
     .catch(error => {
         console.log("error");
