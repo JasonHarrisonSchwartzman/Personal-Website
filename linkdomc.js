@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("timestamps").textContent = `${timestamps}`;
     })
     .catch(error => {
-        console.log("error")
-        console.log(error)
+        console.log("error");
+        console.log(error);
     });   
 });
