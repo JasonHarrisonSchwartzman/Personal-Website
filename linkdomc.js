@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
     .then(response => {
-        console.log(response);
+        console.log(response.statusText);
         return response.json()
     })
     .then(data => {
