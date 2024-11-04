@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const date1 = new Date(data.result.split("\n")[1]);
         const date2 = new Date(data.result.split("\n")[2]);
 
-        const diff = date2 - date1;
+        const diff = date1 - date2;
         const days = diff / (1000 * 60 * 60 * 24);
         let string = "It has been ";
         if (days == 1) {
