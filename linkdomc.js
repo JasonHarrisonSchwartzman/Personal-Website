@@ -12,14 +12,30 @@ document.addEventListener("DOMContentLoaded", () => {
         const date1 = new Date(data.result.split("\n")[1]);
         const date2 = new Date(data.result.split("\n")[2]);
 
-        const diff = date1 - date2;
-        const days = diff / (1000 * 60 * 60 * 24);
+        let diff = date1 - date2;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        diff %= 1000 * 60 * 60 * 24;
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        diff %= 1000 * 60 * 60;
+        const minutes = Math.floor(diff / (1000 * 60));
         let string = "It has been ";
         if (days == 1) {
-            string+= "1 day since linkdomc has played Yasuo.";
+            string+= "1 day ";
         }
         else {
-            string+= days + " days since linkdomc has played Yasuo.";
+            string+= days + " days ";
+        }
+        if (hours == 1) {
+            string +=  "1 hour and ";
+        }
+        else {
+            string += hours + " hours and ";
+        }
+        if (minutes == 1) {
+            string += "1 minute since linkdomc has played Yasuo."
+        }
+        else {
+            string += minutes + " minutes since linkdomc has played Yasuo."
         }
         let formattedNumber = Number(number).toLocaleString();
         document.getElementById("timestamps").textContent = `${"Yasuo Mastery Points: " + formattedNumber}`;
