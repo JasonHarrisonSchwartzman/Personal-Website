@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(data.result);
         let number = data.result.split("\n")[0];
         const date1 = new Date();
-        const date2 = new Date(parseInt(data.result.split("\n")[2],10));
+        const date2 = new Date(parseInt(data.result.split("\n")[1],10));
 
         let diff = date1 - date2;
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
