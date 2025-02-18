@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hearthstone Card Creator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .card-container {
+            display: inline-block;
+        }
+        svg {
+            width: 250px;
+            height: 350px;
+        }
+        .input-container {
+            margin-bottom: 20px;
+        }
+        .description {
+            font-size: 14px;
+            color: white;
+            text-align: center;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hearthstone Card Creator</h1>
+    <div class="input-container">
+        <input type="number" id="mana" placeholder="Mana" style="width: 60px;">
+        <input type="text" id="cardName" placeholder="Card Name">
+        <input type="number" id="gold" placeholder="Gold" style="width: 60px;">
+        <input type="text" id="cardDescription" placeholder="Description">
+        <input type="number" id="attack" placeholder="Attack" style="width: 60px;">
+        <input type="number" id="defense" placeholder="Defense" style="width: 60px;">
+        <input type="text" id="cardClass" placeholder="Class" style="width: 100px;">
+        <input type="file" id="imageUpload" accept="image/*">
+        <select id="cardColor">
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="black">Black</option>
+            <option value="green">Green</option>
+        </select>
+        <button onclick="updateCard()">Generate Card</button>
+        <button onclick="saveCard()">Save as SVG</button>
+    </div>
+    <div class="card-container">
+        <svg id="cardSVG" viewBox="0 0 250 350" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <clipPath id="roundedClip">
+                    <rect x="25" y="5" width="200" height="140" rx="25" ry="25" />
+                </clipPath>
+            </defs>
+            <rect id="cardBackground" x="0" y="0" width="250" height="350" rx="15" fill="brown" stroke="black" stroke-width="5" />
+            <image id="cardImage" x="25" y="5" width="200" height="140" clip-path="url(#roundedClip)" />
+            <text id="manaDisplay" x="200" y="200" font-size="16" fill="blue">0</text>
+            <text id="nameDisplay" x="125" y="200" font-size="18" fill="white" text-anchor="middle">Card Name</text>
+            <text id="goldDisplay" x="40" y="200" font-size="16" fill="yellow">0</text>
+            <foreignObject x="25" y="210" width="200" height="50">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="description" id="descriptionDisplay" style="word-wrap: break-word; text-align: center;">Description</div>
+            </foreignObject>
+            <text id="attackDisplay" x="40" y="320" font-size="20" fill="white">0</text>
+            <text id="defenseDisplay" x="200" y="320" font-size="20" fill="white">0</text>
+            <text id="classDisplay" x="125" y="320" font-size="20" fill="white" text-anchor="middle">Class</text>
+        </svg>
+    </div>
+    
+    <script>
+        function updateCard() {
+            document.getElementById('nameDisplay').textContent = document.getElementById('cardName').value;
+            document.getElementById('descriptionDisplay').textContent = document.getElementById('cardDescription').value;
+            document.getElementById('attackDisplay').textContent = document.getElementById('attack').value;
+            document.getElementById('classDisplay').textContent = document.getElementById('cardClass').value;
+            document.getElementById('defenseDisplay').textContent = document.getElementById('defense').value;
+            document.getElementById('goldDisplay').textContent = document.getElementById('gold').value;
+            document.getElementById('manaDisplay').textContent = document.getElementById('mana').value;
+            document.getElementById('cardBackground').setAttribute('fill', document.getElementById('cardColor').value);
+
+            const fileInput = document.getElementById('imageUpload');
+            const file = fileInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    document.getElementById('cardImage').setAttribute('href', event.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+        
+        function saveCard() {
+            const svg = document.getElementById('cardSVG');
+            const svgData = new XMLSerializer().serializeToString(svg);
+            const blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'card.svg';
+            link.click();
+            
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>

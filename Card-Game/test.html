@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+    <button id="createGame">Create Game</button>
+    <input type="text" id="gameCode" placeholder="Enter Game Code">
+    <button id="joinGame">Join</button>
+    <button id="leaveGame">Leave Game</button>
+    <button id="startGame">Start Game</button>
+    <input type="text" id="bid" placeholder="Enter Bid">
+    <button id="makeBid">Make Bid</button>
+    <select id="class">
+        <option value="" selected disabled>None</option>
+        <option value="necromancer">Necromancer</option>
+        <option value="commander">Commander</option>
+    </select>
+    <button id="chooseClass">Choose Class</button>
+<script>
+const ws = new WebSocket("ws://192.168.1.126/card-game");
+const ping_interval = 12000;
+
+document.getElementById("joinGame").addEventListener("click", () => {
+    let code = document.getElementById("gameCode").value.trim();
+    if (ws.readyState === WebSocket.OPEN) {
+        const data = {
+            "action":"JoinGame",
+            "data":{
+                "code":code
+            }
+        }
+        send(data);
+        console.log("Message sent!");
+    } else {
+        console.log("WebSocket is not open.");
+    }
+});
+
+document.getElementById("chooseClass").addEventListener("click", () => {
+    let class_name = document.getElementById("class").value.trim();
+    if (ws.readyState === WebSocket.OPEN) {
+        const data = {
+            "action":"ChooseClass",
+            "data":{
+                "class_name":class_name
+            }
+        }
+        send(data);
+        console.log("Message sent!");
+    } else {
+        console.log("WebSocket is not open.");
+    }
+});
+
+document.getElementById("makeBid").addEventListener("click", () => {
+    let bid = document.getElementById("bid").value.trim();
+    if (ws.readyState === WebSocket.OPEN) {
+        const data = {
+            "action":"MakeBid",
+            "data":{
+                "bid":bid
+            }
+        }
+        send(data);
+        console.log("Message sent!");
+    } else {
+        console.log("WebSocket is not open.");
+    }
+});
+
+document.getElementById("createGame").addEventListener("click", () => {
+    if (ws.readyState === WebSocket.OPEN) {
+        const data = {
+            "action":"CreateGame"
+        }
+        send(data);
+        console.log("Message sent!");
+    } else {
+        console.log("WebSocket is not open.");
+    }
+});
+
+document.getElementById("startGame").addEventListener("click", () => {
+    if (ws.readyState === WebSocket.OPEN) {
+        const data = {
+            "action":"StartGame"
+        }
+        send(data);
+        console.log("Message sent!");
+    } else {
+        console.log("WebSocket is not open.");
+    }
+});
+
+
+document.getElementById("leaveGame").addEventListener("click", () => {
+    if (ws.readyState === WebSocket.OPEN) {
+        const data = {
+            "action":"LeaveGame",
+            "data": {
+                "code":getCookie("game")
+            }
+        }
+        send(data);
+        console.log("Message sent!");
+    } else {
+        console.log("WebSocket is not open.");
+    }
+});
+
+function move() {
+    const data = {
+        "action":action
+    };
+    send(data);
+}
+
+
+function getCookie(name) {
+    let cookies = document.cookie.split("; ");
+    for (let cookie of cookies) {
+        let [key, value] = cookie.split("=");
+        if (key === name) {
+            return value; // Decode in case of special characters
+        }
+    }
+    return null; 
+}
+
+function send(data) {
+    //console.log(document.cookie.session)
+    const dataToSend = {
+        "session": getCookie('session'),
+        "data":data
+    };
+    console.log("data to send:", dataToSend);
+    ws.send(JSON.stringify(dataToSend));
+}
+
+function readMessage(message) {
+
+}
+
+ws.onopen = () => {
+    console.log("Connected to WebSocket server");
+    send(null);
+    
+    //ping
+    interval = setInterval(() => {
+    const sendMessage = "PING";
+    ws.send(sendMessage);
+  }, ping_interval);
+};
+
+function setSession(data) {
+    document.cookie = `session=${data.session};`;
+}
+
+function setGame(data) {
+    console.log("setting game");
+    document.cookie = `game=${data.game};`;
+}
+function leaveGame(data) {
+    console.log("leaving game");
+    document.cookie = 'game=;';
+}
+
+function parseAction(message) {
+    if (message.action === 'SetSession') {
+        setSession(message.data);
+    }
+    if (message.action === 'SetGame') {
+        setGame(message.data);
+    }
+    if (message.action === 'LeaveGame'){
+        leaveGame(message.data);
+    }
+}
+
+ws.onmessage = (event) => {
+    if (event.data === 'PONG') return;
+    console.log("Server says:", event.data);
+    parseAction(JSON.parse(event.data));
+    console.log("Cookie" + document.cookie);
+};
+
+ws.onclose = () => {
+    console.log("Connection closed");
+};
+</script>
+</body>
